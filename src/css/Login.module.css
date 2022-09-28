@@ -1,0 +1,80 @@
+.contenedorGlobal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorPrincipal {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  /* background-color: aqua; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedorSuperior {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: aquamarine; */
+  flex-wrap: wrap;
+}
+.contenedorSuperior h1 {
+  font-weight: bold;
+}
+.contenedorSuperior img {
+  width: 500px;
+}
+
+.contenedorLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 400px;
+  /* background-color: gray; */
+}
+
+.input {
+  width: 90%;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  color: gray;
+  font-size: 1.1rem;
+}
+
+.carrusel {
+  width: 80%;
+  margin: 5% 0;
+}
+
+.grupoBotones {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 1rem;
+  margin-top: 1rem;
+}
+
+.boton {
+  background-color: var(--btn-main-color);
+  padding: 0.6rem;
+  border-radius: 5px;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.boton:hover {
+  background-color: var(--btn-main-hover);
+}
