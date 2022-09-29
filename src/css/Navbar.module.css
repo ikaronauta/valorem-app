@@ -1,0 +1,16 @@
+.navBar{
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+}
+    .navBar img{
+        width: 140px;
+        height: 35px;
+    }
+
+.sectionLine{
+    height: 3rem;
+    background-color: #C68C00;
+}
