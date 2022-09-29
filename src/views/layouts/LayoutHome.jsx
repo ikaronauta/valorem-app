@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
-import navBar from "../css/Navbar.module.css";
-import analiticaLogo from "../assets/img/layout/analitica-logo-menu.png";
+import navBar from "../../css/Navbar.module.css";
+import analiticaLogo from "../../assets/img/layout/analitica-logo-menu.png";
 
-export function Layout() {
+export function LayoutHome() {
   return (
     <main>
       <nav>
@@ -16,5 +16,5 @@ export function Layout() {
         <Outlet />
       </section>
     </main>
-  )
+  );
 }

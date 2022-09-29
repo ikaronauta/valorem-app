@@ -1,0 +1,35 @@
+.contenedorGlobal {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedorPrincipal {
+  width: 100%;
+  height: 100%;
+  padding: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contenedorSuperior {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contenedorSuperior h1 {
+  font-weight: bold;
+}
+.contenedorSuperior img {
+  width: 500px;
+}
+
+.carrusel {
+  width: 80%;
+  margin: 5% 0;
+}
