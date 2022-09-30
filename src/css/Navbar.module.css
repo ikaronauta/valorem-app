@@ -14,3 +14,18 @@
     height: 3rem;
     background-color: #C68C00;
 }
+
+.button{
+    background-color: var(--btn-main-color);
+    padding: 0.6rem;
+    border-radius: 5px;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin: 0 0.1rem;
+}
+
+.button:hover {
+    background-color: var(--btn-main-hover);
+  }
