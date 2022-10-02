@@ -1,4 +1,5 @@
-import styles from "../../css/views/login/general.module.css"
+import { Link } from "react-router-dom";
+import styles from "../../css/general.module.css";
 
 export function ChangePassword() {
   return (
@@ -21,7 +22,9 @@ export function ChangePassword() {
         className={styles.input}
       />
       <div className={styles.grupoBotones}>
-        <button className={styles.boton}>Volver</button>
+        <Link to="/">
+          <button className={styles.boton}>Volver</button>
+        </Link>
         <button className={styles.boton}>Cambiar Contraseña</button>
       </div>
     </div>

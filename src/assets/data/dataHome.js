@@ -1,4 +1,4 @@
-export const data1 = [
+export const dataHome = [
     {
         id: 1,
         content: "Proceso de Consolidación Estados Financieros",

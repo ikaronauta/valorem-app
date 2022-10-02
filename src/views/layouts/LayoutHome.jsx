@@ -1,4 +1,5 @@
-import { Outlet } from "react-router-dom";
+import styles from "../../css/general.module.css";
+import { Link, Outlet } from "react-router-dom";
 import navBar from "../../css/Navbar.module.css";
 import analiticaLogo from "../../assets/img/layout/analitica-logo-menu.png";
 import { FaPowerOff } from "react-icons/fa";
@@ -8,16 +9,20 @@ export function LayoutHome() {
     <main>
       <nav>
         <div className={navBar.navBar}>
-          <img src={analiticaLogo} alt="Analítica" />
-          <button className={navBar.button}>
-          <FaPowerOff />
-          Log Off
-          </button> 
+          <Link to="/home">
+            <img src={analiticaLogo} alt="Analítica" />
+          </Link>
+          <Link to="/">
+            <button className={navBar.button}>
+              <FaPowerOff />
+              Log Off
+            </button>
+          </Link>
         </div>
         <div className={navBar.sectionLine}></div>
       </nav>
       <section>
-        <Outlet />
+        <Outlet className={styles.outlet} />
       </section>
     </main>
   );

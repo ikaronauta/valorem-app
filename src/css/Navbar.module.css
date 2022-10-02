@@ -12,7 +12,7 @@
 
 .sectionLine{
     height: 3rem;
-    background-color: #C68C00;
+    background-color: var(--bg-second-color);
 }
 
 .button{

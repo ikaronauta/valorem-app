@@ -40,33 +40,8 @@
     background-color: var(--btn-main-hover);
   }
 
-.tarjeta{
-  width: 250px !important;
-  height: 250px !important;
-  border-radius: 5px;
+.outlet{
   padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  font-size: larger;
-  font-weight: bolder;
-  color: #333;
-  position: relative;
-}
-
-.grid{
   width: 100%;
-  padding: 1rem;
-
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fill, 250px);
-  justify-content: center;
-}
-
-.icon {
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  width: 4rem;
   height: auto;
 }
-  

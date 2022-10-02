@@ -1,11 +1,18 @@
 import { FaPlayCircle } from "react-icons/fa";
-import styles from "../css/views/login/general.module.css";
+import { Link } from "react-router-dom";
 
-export function Tarjeta({ dat }) {
+//Importación Estilos
+import styles from "../css/components/Tarjeta.module.css";
+
+export function Tarjeta({ dato }) {
+
+  
   return (
-    <div className={styles.tarjeta}>
-      <p>{dat.content}</p>
-      <FaPlayCircle className={styles.icon} />
-    </div>
+    <Link to="/home/procesos-consolidacion/administracion">
+      <div className={styles.tarjeta}>
+        <p>{dato.content}</p>
+        <FaPlayCircle className={styles.icon} />
+      </div>
+    </Link>
   );
 }

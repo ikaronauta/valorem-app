@@ -1,11 +1,13 @@
 import { Tarjeta } from "./Tarjeta";
-import styles from "../css/views/login/general.module.css";
 
-export function Grid({ data }) {
+//Importación Estilos
+import styles from "../css/components/Grid.module.css";
+
+export function Grid({ datos }) {
   return (
     <div className={styles.grid}>
-      {data.map((dat) => {
-        return <Tarjeta key={dat.id} dat={dat} />;
+      {datos.map((dato) => {
+        return <Tarjeta key={dato.id} dato={dato} />;
       })}
     </div>
   );
