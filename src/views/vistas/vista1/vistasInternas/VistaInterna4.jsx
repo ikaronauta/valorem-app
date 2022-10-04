@@ -1,4 +1,4 @@
-export function VistaInterna1({ prueba }) {
+export function VistaInterna4({ prueba }) {
   return (
     <div>
       <div>{prueba}</div>

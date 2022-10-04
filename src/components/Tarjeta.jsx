@@ -1,4 +1,3 @@
-import { FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 //Importación Estilos
@@ -8,10 +7,9 @@ export function Tarjeta({ dato }) {
 
   
   return (
-    <Link to="/home/procesos-consolidacion/administracion">
+    <Link to={dato.ruta}>
       <div className={styles.tarjeta}>
         <p>{dato.content}</p>
-        <FaPlayCircle className={styles.icon} />
       </div>
     </Link>
   );

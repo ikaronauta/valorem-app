@@ -8,6 +8,9 @@ import { Login } from "./views/login/Login";
 import { UnlockUser } from "./views/login/UnlockUser";
 import { Vista1 } from "./views/vistas/vista1/Vista1";
 import { VistaInterna1 } from "./views/vistas/vista1/vistasInternas/VistaInterna1";
+import { VistaInterna2 } from "./views/vistas/vista1/vistasInternas/VistaInterna2";
+import { VistaInterna3 } from "./views/vistas/vista1/vistasInternas/VistaInterna3";
+import { VistaInterna4 } from "./views/vistas/vista1/vistasInternas/VistaInterna4";
 import { Vista3 } from "./views/vistas/vista3/Vista3";
 import { Vista4 } from "./views/vistas/vista4/Vista4";
 import { Vista8 } from "./views/vistas/vista8/Vista8";
@@ -27,6 +30,9 @@ export function App() {
           <Route index element={<Vista1 />} />
           <Route path="/home/procesos-consolidacion/" element={<LayoutVista />}>
             <Route path="/home/procesos-consolidacion/administracion" element={<VistaInterna1 prueba="prueba" />} />
+            <Route path="/home/procesos-consolidacion/carga-datos" element={<VistaInterna2 prueba="prueba" />} />
+            <Route path="/home/procesos-consolidacion/conciliacion" element={<VistaInterna3 prueba="prueba" />} />
+            <Route path="/home/procesos-consolidacion/consolidacion" element={<VistaInterna4 prueba="prueba" />} />
           </Route>
         </Route>
         <Route path="/home/reportes-financieros-y-otros" element={<Vista3 />} />
