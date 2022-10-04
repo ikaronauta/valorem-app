@@ -11,7 +11,7 @@ export function LayoutHome() {
           <Link to="/home">
             <img src={analiticaLogo} alt="Analítica" />
           </Link>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <button className={navBar.button}>
               <ion-icon name="log-out-outline"></ion-icon>
               Log Off
