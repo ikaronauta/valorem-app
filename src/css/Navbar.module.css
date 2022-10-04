@@ -1,31 +1,40 @@
-.navBar{
+.navBar {
     height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
 }
-    .navBar img{
-        width: 140px;
-        height: 35px;
-    }
 
-.sectionLine{
+.navBar img {
+    width: 140px;
+    height: 35px;
+}
+
+.sectionLine {
     height: 3rem;
     background-color: var(--bg-second-color);
 }
 
-.button{
+.button {
+    width: 6rem;
     background-color: var(--btn-main-color);
-    padding: 0.6rem;
+    padding: 0.4rem;
     border-radius: 5px;
     color: aliceblue;
     border: none;
     cursor: pointer;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin: 0 0.1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.button > ion-icon{
+    font-size: 1.3rem;
 }
 
 .button:hover {
     background-color: var(--btn-main-hover);
-  }
+}

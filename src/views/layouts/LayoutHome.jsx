@@ -13,6 +13,7 @@ export function LayoutHome() {
           </Link>
           <Link to="/">
             <button className={navBar.button}>
+              <ion-icon name="log-out-outline"></ion-icon>
               Log Off
             </button>
           </Link>
