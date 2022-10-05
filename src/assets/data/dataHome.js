@@ -45,6 +45,6 @@ export const dataHome = [
     id: 8,
     content: "Informe de Junta Caracol TV",
     icon: "copy",
-    ruta: "/home/informe-de-junta-caracol",
+    ruta: "/home/informe-de-junta-caracol-tv",
   },
 ];
