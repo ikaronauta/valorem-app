@@ -6,14 +6,16 @@ import { Login } from "./views/login/Login";
 import { UnlockUser } from "./views/login/UnlockUser";
 
 import { LayoutHome } from "./views/layouts/LayoutHome";
-import { Home } from "./views/Home";
 import { VistaGrid } from "./views/VistaGrid";
 import { VistaInterna } from "./views/VistaInterna";
 
-import { dataVista1 } from "./assets/data/dataVista1.js";
-import { dataVista3 } from "./assets/data/dataVista3.js";
-import { dataVista4 } from "./assets/data/dataVista4.js";
-import { dataVista8 } from "./assets/data/dataVista8.js";
+import {
+  dataHome,
+  dataVista1,
+  dataVista3,
+  dataVista4,
+  dataVista8,
+} from "./assets/data/data.js";
 
 export function App() {
   return (
@@ -25,7 +27,7 @@ export function App() {
       </Route>
 
       <Route path="/home" element={<LayoutHome />}>
-        <Route index element={<Home />} />
+        <Route index element={<VistaGrid datos={dataHome} />} />
 
         {/* Vistas Tarjeta 1 */}
         <Route
