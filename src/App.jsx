@@ -1,18 +1,18 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { Home } from "./views/Home";
-import { LayoutHome } from "./views/layouts/LayoutHome";
+import { Route, Routes } from "react-router-dom";
+
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
-import { LayoutVista } from "./views/layouts/LayoutVista";
 import { ChangePassword } from "./views/login/ChangePassword";
 import { Login } from "./views/login/Login";
 import { UnlockUser } from "./views/login/UnlockUser";
-import { Vista1 } from "./views/vistas/vista1/Vista1";
-import { VistaInterna1 } from "./views/vistas/vista1/vistasInternas/VistaInterna1";
-import { VistaInterna2 } from "./views/vistas/vista1/vistasInternas/VistaInterna2";
-import { VistaInterna3 } from "./views/vistas/vista1/vistasInternas/VistaInterna3";
-import { VistaInterna4 } from "./views/vistas/vista1/vistasInternas/VistaInterna4";
-import { VistaInterna5 } from "./views/vistas/vista1/vistasInternas/VistaInterna5";
-import { Vista2 } from "./views/vistas/vista2/Vista2";
+
+import { LayoutHome} from "./views/layouts/LayoutHome";
+import { Home } from "./views/Home";
+import { VistaGrid } from "./views/VistaGrid";
+import { VistaInterna } from "./views/VistaInterna";
+
+import { dataVista1 } from "./assets/data/dataVista1.js";
+import { dataVista3 } from "./assets/data/dataVista3.js"
+
 
 export function App() {
   return (
@@ -25,39 +25,21 @@ export function App() {
 
       <Route path="/home" element={<LayoutHome />}>
         <Route index element={<Home />} />
-        <Route path="/home/procesos-consolidacion">
-          <Route index element={<Vista1 />} />
-          <Route path="/home/procesos-consolidacion/" element={<LayoutVista />}>
-            <Route
-              path="/home/procesos-consolidacion/administracion"
-              element={<VistaInterna1 prueba="prueba" />}
-            />
-            <Route
-              path="/home/procesos-consolidacion/carga-datos"
-              element={<VistaInterna2 prueba="prueba" />}
-            />
-            <Route
-              path="/home/procesos-consolidacion/conciliacion"
-              element={<VistaInterna3 prueba="prueba" />}
-            />
-            <Route
-              path="/home/procesos-consolidacion/consolidacion"
-              element={<VistaInterna4 prueba="prueba" />}
-            />
-            <Route
-              path="/home/procesos-consolidacion/reportes"
-              element={<VistaInterna5 prueba="prueba" />}
-            />
-          </Route>
-        </Route>
 
-        <Route
-          path="/home/elaboracion-notas-consolidacion"
-          element={<LayoutVista />}
-        >
-          <Route index element={<Vista2 />} />
-        </Route>
-        <Route path="*" element={<Navigate replace to="/home" />} />
+        {/* Vistas Tarjeta 1 */}
+        <Route path="/home/procesos-consolidacion" element={<VistaGrid datos={dataVista1} />} />
+        <Route path="/home/procesos-consolidacion/administracion" element={<VistaInterna />} />
+        <Route path="/home/procesos-consolidacion/carga-datos" element={<VistaInterna />} />
+        <Route path="/home/procesos-consolidacion/conciliacion" element={<VistaInterna />} />
+        <Route path="/home/procesos-consolidacion/consolidacion" element={<VistaInterna />} />
+        <Route path="/home/procesos-consolidacion/reportes" element={<VistaInterna />} />
+
+        {/* Vistas Tarjeta 2 */}
+        <Route path="/home/elaboracion-notas-consolidacion" element={<VistaInterna />} />
+
+        {/* Vistas Tarjeta 3 */}
+        <Route path="/home/reportes-financieros-y-otros-reportes" element={<VistaGrid datos={dataVista3} />} />
+
       </Route>
     </Routes>
   );

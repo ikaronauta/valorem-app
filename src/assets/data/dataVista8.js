@@ -2,16 +2,16 @@ export const dataVista8 = [
     {
         id: 1,
         content: "General Detalle por Concepto",
-        icon: "FaPlayCircle"
+        icon: "document-text"
     },  
     {
         id: 2,
         content: "Indicadores Financieros",
-        icon: "FaPlayCircle"
+        icon: "layers"
     }, 
     {
         id: 3,
         content: "Generar Versión Final",
-        icon: "FaPlayCircle"
+        icon: "reader"
     }
 ]

@@ -1,7 +1,0 @@
-export function VistaInterna1({ prueba }) {
-  return (
-    <div>
-      <div>{prueba}</div>
-    </div>
-  )
-}

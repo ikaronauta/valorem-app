@@ -2,36 +2,36 @@ export const dataVista4 = [
     {
         id: 1,
         content: "Cargue Inicial",
-        icon: "FaPlayCircle"
+        icon: "clipboard"
     },  
     {
         id: 2,
         content: "Generación de Informe de Junta",
-        icon: "FaPlayCircle"
+        icon: "create"
     }, 
     {
         id: 3,
         content: "Comentarios por Área",
-        icon: "FaPlayCircle"
+        icon: "chatbox"
     }, 
     {
         id: 4,
         content: "Comentarios Generales",
-        icon: "FaPlayCircle"
+        icon: "chatbubbles"
     }, 
     {
         id: 5,
         content: "Redondedo de Cifras",
-        icon: "FaPlayCircle"
+        icon: "calculator"
     } ,
     {
         id: 6,
         content: "Informe de Junta",
-        icon: "FaPlayCircle"
+        icon: "receipt"
     },
     {
         id: 7,
         content: "Parametrización",
-        icon: "FaPlayCircle"
+        icon: "push"
     } 
 ]
