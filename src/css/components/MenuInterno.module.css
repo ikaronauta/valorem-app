@@ -1,0 +1,24 @@
+.menuInterno {
+  width: 100%;
+  height: 70px;
+  background-color: var(--bg-third-color);
+  padding: 0 3rem;
+  border-bottom: 0.125rem solid #eff4f9;
+  box-shadow: inset 0 -0.25rem 0 -0.125rem #d1e0ee;
+
+  display: flex;
+  align-items: center;
+}
+
+.containerInterno {
+  display: flex;
+  align-items: center;
+  margin: 0 0.4rem;
+  color: var(--main-color);
+}
+
+.containerInterno > ion-icon {
+  font-size: 2.3rem;
+  color: #3b6f9a;
+  margin-right: 0.3rem;
+}

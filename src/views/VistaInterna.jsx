@@ -1,12 +1,11 @@
-// Importación Estilos
-import styles from "../css/layouts/LayoutVista.module.css";
+import { Outlet } from "react-router-dom";
+import { MenuInterno } from "../components/MenuInterno";
 
-export function VistaInterna() {
+export function VistaInterna({ datos }) {
   return (
     <div>
-      <div className={styles.menuVistaInerna}>
-        <ion-icon name="remove-circle"></ion-icon>
-      </div>
+      <MenuInterno datos={datos} />
+      <Outlet />
     </div>
   );
 }

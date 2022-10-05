@@ -17,6 +17,8 @@ import {
   dataVista8,
 } from "./assets/data/data.js";
 
+import { administracion, cargaDeDatos } from "./assets/data/dataInternos";
+
 export function App() {
   return (
     <Routes>
@@ -36,12 +38,28 @@ export function App() {
         />
         <Route
           path="/home/procesos-consolidacion/administracion"
-          element={<VistaInterna />}
-        />
+          element={<VistaInterna datos={administracion} />}
+        >
+          <Route index element={<h1>Administración</h1>} />
+        </Route>
         <Route
           path="/home/procesos-consolidacion/carga-datos"
-          element={<VistaInterna />}
-        />
+          element={<VistaInterna datos={cargaDeDatos} />}
+        >
+          <Route index element={<h1>Matriz de Inversion</h1>} />
+          <Route
+            path="/home/procesos-consolidacion/carga-datos/tasa-de-cambio"
+            element={<h1>Tasa de cambio</h1>}
+          />
+          <Route
+            path="/home/procesos-consolidacion/carga-datos/cargue-de-informacion"
+            element={<h1>Cargue de Información</h1>}
+          />
+          <Route
+            path="/home/procesos-consolidacion/carga-datos/reportes"
+            element={<h1>Reportes</h1>}
+          />
+        </Route>
         <Route
           path="/home/procesos-consolidacion/conciliacion"
           element={<VistaInterna />}
