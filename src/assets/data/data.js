@@ -3,7 +3,7 @@ export const dataHome = [
     id: 1,
     content: "Proceso de Consolidación Estados Financieros",
     icon: "play-forward",
-    ruta: "/home/procesos-consolidacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros",
   },
   {
     id: 2,
@@ -54,31 +54,31 @@ export const dataVista1 = [
     id: 1,
     content: "Administración",
     icon: "play-forward",
-    ruta: "/home/procesos-consolidacion/administracion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/administracion",
   },
   {
     id: 2,
     content: "Carga de Datos",
     icon: "cloud-upload",
-    ruta: "/home/procesos-consolidacion/carga-datos",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos",
   },
   {
     id: 3,
     content: "Conciliación",
     icon: "bag",
-    ruta: "/home/procesos-consolidacion/conciliacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion",
   },
   {
     id: 4,
     content: "Consolidación",
     icon: "create",
-    ruta: "/home/procesos-consolidacion/consolidacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion",
   },
   {
     id: 5,
     content: "Reportes",
     icon: "document-attach",
-    ruta: "/home/procesos-consolidacion/reportes",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/reportes",
   },
 ];
 

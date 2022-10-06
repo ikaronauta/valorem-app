@@ -2,7 +2,7 @@ export const administracion = [
   {
     title: "Administración",
     icon: "newspaper",
-    ruta: "/home/procesos-consolidacion/administracion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/administracion",
     datos: [
       {
         id: 1,
@@ -32,7 +32,7 @@ export const cargaDeDatos = [
   {
     title: "Matriz de Inversión",
     icon: "newspaper",
-    ruta: "/home/procesos-consolidacion/carga-datos",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos",
     datos: [
       {
         id: 1,
@@ -44,7 +44,7 @@ export const cargaDeDatos = [
   {
     title: "Tasa de Cambio",
     icon: "reader",
-    ruta: "/home/procesos-consolidacion/carga-datos/tasa-de-cambio",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/tasa-de-cambio",
     datos: [
       {
         id: 1,
@@ -56,7 +56,7 @@ export const cargaDeDatos = [
   {
     title: "Cargue de Información",
     icon: "receipt",
-    ruta: "/home/procesos-consolidacion/carga-datos/cargue-de-informacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/cargue-de-informacion",
     datos: [
       {
         id: 1,
@@ -68,7 +68,7 @@ export const cargaDeDatos = [
   {
     title: "Reportes",
     icon: "document",
-    ruta: "/home/procesos-consolidacion/carga-datos/reportes",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/reportes",
     datos: [
       {
         id: 1,
@@ -103,7 +103,7 @@ export const conciliacion = [
   {
     title: "Ejecutar Conciliación",
     icon: "copy",
-    ruta: "/home/procesos-consolidacion/conciliacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion",
     datos: [
       {
         id: 1,
@@ -115,7 +115,7 @@ export const conciliacion = [
   {
     title: "Inputs",
     icon: "layers",
-    ruta: "/home/procesos-consolidacion/conciliacion/inputs",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion/inputs",
     datos: [
       {
         id: 1,
@@ -132,7 +132,7 @@ export const conciliacion = [
   {
     title: "Reportes",
     icon: "newspaper",
-    ruta: "/home/procesos-consolidacion/conciliacion/reportes",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion/reportes",
     datos: [
       {
         id: 1,
@@ -162,7 +162,7 @@ export const consolidacion = [
   {
     title: "Ejecutar Consolidación",
     icon: "receipt",
-    ruta: "/home/procesos-consolidacion/consolidacion",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion",
     datos: [
       {
         id: 1,
@@ -174,7 +174,7 @@ export const consolidacion = [
   {
     title: "Inputs",
     icon: "layers",
-    ruta: "/home/procesos-consolidacion/consolidacion/inputs",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion/inputs",
     datos: [
       {
         id: 1,
@@ -186,7 +186,7 @@ export const consolidacion = [
   {
     title: "Reportes",
     icon: "newspaper",
-    ruta: "/home/procesos-consolidacion/consolidacion/reportes",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion/reportes",
     datos: [
       {
         id: 1,
@@ -226,7 +226,7 @@ export const reportes = [
   {
     title: "Reportes",
     icon: "newspaper",
-    ruta: "/home/procesos-consolidacion/reportes",
+    ruta: "/procesos-de-consolidacion-de-estados-financieros/reportes",
     datos: [
       {
         id: 1,

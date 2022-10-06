@@ -6,12 +6,11 @@ import styles from "../../css/general.module.css";
 import navBar from "../../css/Navbar.module.css";
 
 export function LayoutHome() {
-
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate(-1);
-  }
+  };
 
   return (
     <main>
@@ -27,7 +26,7 @@ export function LayoutHome() {
           </div>
           <Link to="/" style={{ textDecoration: "none" }}>
             <button className={navBar.button}>
-              <ion-icon name="log-out-outline"></ion-icon>
+              <ion-icon name="power"></ion-icon>
               Log Off
             </button>
           </Link>

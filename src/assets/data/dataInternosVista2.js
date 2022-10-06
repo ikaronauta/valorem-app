@@ -78,7 +78,7 @@ export const notasConsolidacion = [
   },
   {
     title: "Preparación",
-    icon: "newspaper",
+    icon: "calendar-clear",
     ruta: "/home/elaboracion-notas-consolidacion/preparacion",
     datos: [
       {
