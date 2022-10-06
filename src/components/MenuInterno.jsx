@@ -13,7 +13,9 @@ export function MenuInterno({ datos }) {
             className={styles.containerInterno}
             style={{ textDecoration: "none" }}
           >
-            <ion-icon name={dato.icon}></ion-icon>
+            <div className={styles.containerIcon}>
+              <ion-icon name={dato.icon}></ion-icon>
+            </div>
             <h3>{dato.title}</h3>
           </Link>
         );

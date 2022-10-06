@@ -2,6 +2,7 @@ export const administracion = [
   {
     title: "Administración",
     icon: "newspaper",
+    ruta: "/home/procesos-consolidacion/administracion",
     datos: [
       {
         id: 1,
@@ -101,6 +102,8 @@ export const cargaDeDatos = [
 export const conciliacion = [
   {
     title: "Ejecutar Conciliación",
+    icon: "copy",
+    ruta: "/home/procesos-consolidacion/conciliacion",
     datos: [
       {
         id: 1,
@@ -111,6 +114,8 @@ export const conciliacion = [
   },
   {
     title: "Inputs",
+    icon: "layers",
+    ruta: "/home/procesos-consolidacion/conciliacion/inputs",
     datos: [
       {
         id: 1,
@@ -126,6 +131,8 @@ export const conciliacion = [
   },
   {
     title: "Reportes",
+    icon: "newspaper",
+    ruta: "/home/procesos-consolidacion/conciliacion/reportes",
     datos: [
       {
         id: 1,
@@ -154,6 +161,8 @@ export const conciliacion = [
 export const consolidacion = [
   {
     title: "Ejecutar Consolidación",
+    icon: "receipt",
+    ruta: "/home/procesos-consolidacion/consolidacion",
     datos: [
       {
         id: 1,
@@ -164,6 +173,8 @@ export const consolidacion = [
   },
   {
     title: "Inputs",
+    icon: "layers",
+    ruta: "/home/procesos-consolidacion/consolidacion/inputs",
     datos: [
       {
         id: 1,
@@ -174,6 +185,8 @@ export const consolidacion = [
   },
   {
     title: "Reportes",
+    icon: "newspaper",
+    ruta: "/home/procesos-consolidacion/consolidacion/reportes",
     datos: [
       {
         id: 1,
@@ -212,6 +225,8 @@ export const consolidacion = [
 export const reportes = [
   {
     title: "Reportes",
+    icon: "newspaper",
+    ruta: "/home/procesos-consolidacion/reportes",
     datos: [
       {
         id: 1,

@@ -93,7 +93,7 @@ export const dataVista3 = [
     id: 2,
     content: "Notas a los Estados Financieros",
     icon: "clipboard",
-    ruta: "/home/reportes-financieros-y-otros-reportes/nota-a-los-estos-financieros",
+    ruta: "/home/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
   },
 ];
 

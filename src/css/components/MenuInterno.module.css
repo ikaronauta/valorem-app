@@ -1,24 +1,36 @@
 .menuInterno {
   width: 100%;
-  height: 70px;
+  height: auto;
   background-color: var(--bg-third-color);
-  padding: 0 3rem;
+  padding: 1rem 3rem;
   border-bottom: 0.125rem solid #eff4f9;
   box-shadow: inset 0 -0.25rem 0 -0.125rem #d1e0ee;
 
   display: flex;
   align-items: center;
+  flex-flow: row wrap;
 }
 
 .containerInterno {
   display: flex;
   align-items: center;
-  margin: 0 0.4rem;
+  margin: 0 0.5rem;
   color: var(--main-color);
+  font-size: 0.8rem;
 }
 
-.containerInterno > ion-icon {
-  font-size: 2.3rem;
+.containerIcon {
+  padding: 0.5rem;
+}
+
+.containerIcon > ion-icon {
+  font-size: 2rem;
   color: #3b6f9a;
-  margin-right: 0.3rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .menuInterno {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
