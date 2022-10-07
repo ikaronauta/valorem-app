@@ -23,7 +23,17 @@ export const cargueInicial = [
     datos: [
       {
         id: 1,
-        content: "Estado Situación Financiera",
+        content: "Cargar saldos de movimiento real",
+        ruta: "",
+      },
+      {
+        id: 2,
+        content: "Reporte de validación de estructuras financieras",
+        ruta: "",
+      },
+      {
+        id: 3,
+        content: "Eliminación valores",
         ruta: "",
       },
     ],
@@ -168,7 +178,7 @@ export const parametrizacion = [
     datos: [
       {
         id: 1,
-        content: "Parametrizaciónl",
+        content: "Parametrización",
         ruta: "",
       },
     ],

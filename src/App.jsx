@@ -38,6 +38,11 @@ import {
   parametrizacion,
 } from "./assets/data/dataInternosVista4.js";
 import { otrosInformesValorem } from "./assets/data/dataInternosVista5.js";
+import {
+  generalDetallePorConcepto,
+  indicadoresFinancieros,
+  generarVersionFinal,
+} from "./assets/data/dataInternosVista8.js";
 import { ContenidoInterno } from "./components/ContenidoInterno";
 
 export function App() {
@@ -62,38 +67,71 @@ export function App() {
           path="administracion"
           element={<VistaInterna datos={administracion} />}
         >
-          <Route index element={<ContenidoInterno datos={administracion} />} />
+          <Route
+            index
+            element={<ContenidoInterno datos={administracion[0].datos} />}
+          />
         </Route>
         <Route
           path="carga-datos"
           element={<VistaInterna datos={cargaDeDatos} />}
         >
-          <Route index element={<h1>Matriz de Inversion</h1>} />
-          <Route path="tasa-de-cambio" element={<h1>Tasa de cambio</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={cargaDeDatos[0].datos} />}
+          />
+          <Route
+            path="tasa-de-cambio"
+            element={<ContenidoInterno datos={cargaDeDatos[1].datos} />}
+          />
           <Route
             path="cargue-de-informacion"
-            element={<h1>Cargue de Información</h1>}
+            element={<ContenidoInterno datos={cargaDeDatos[2].datos} />}
           />
-          <Route path="reportes" element={<h1>Reportes</h1>} />
+          <Route
+            path="reportes"
+            element={<ContenidoInterno datos={cargaDeDatos[3].datos} />}
+          />
         </Route>
         <Route
           path="conciliacion"
           element={<VistaInterna datos={conciliacion} />}
         >
-          <Route index element={<h1>Ejecutar Conciliación</h1>} />
-          <Route path="inputs" element={<h1>Inputs</h1>} />
-          <Route path="reportes" element={<h1>Reportes</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={conciliacion[0].datos} />}
+          />
+          <Route
+            path="inputs"
+            element={<ContenidoInterno datos={conciliacion[1].datos} />}
+          />
+          <Route
+            path="reportes"
+            element={<ContenidoInterno datos={conciliacion[2].datos} />}
+          />
         </Route>
         <Route
           path="consolidacion"
           element={<VistaInterna datos={consolidacion} />}
         >
-          <Route index element={<h1>Ejecutar Conciliación</h1>} />
-          <Route path="inputs" element={<h1>Inputs</h1>} />
-          <Route path="reportes" element={<h1>Reportes</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={consolidacion[0].datos} />}
+          />
+          <Route
+            path="inputs"
+            element={<ContenidoInterno datos={consolidacion[1].datos} />}
+          />
+          <Route
+            path="reportes"
+            element={<ContenidoInterno datos={consolidacion[2].datos} />}
+          />
         </Route>
         <Route path="reportes" element={<VistaInterna datos={reportes} />}>
-          <Route index element={<h1>Reportes</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={reportes[0].datos} />}
+          />
         </Route>
       </Route>
 
@@ -102,8 +140,14 @@ export function App() {
           path="/elaboracion-de-notas-consolidas"
           element={<VistaInterna datos={notasConsolidacion} />}
         >
-          <Route index element={<h1>Notas Consolidación</h1>} />
-          <Route path="preparacion" element={<h1>Preparación</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={notasConsolidacion[0].datos} />}
+          />
+          <Route
+            path="preparacion"
+            element={<ContenidoInterno datos={notasConsolidacion[1].datos} />}
+          />
         </Route>
       </Route>
 
@@ -116,24 +160,34 @@ export function App() {
           path="estados-financieros"
           element={<VistaInterna datos={estadosFinancieros} />}
         >
-          <Route index element={<h1>Cargue Estados Financieros</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={estadosFinancieros[0].datos} />}
+          />
           <Route
             path="consulta-estados-financieros"
-            element={<h1>Consulta Estados Financieros</h1>}
+            element={<ContenidoInterno datos={estadosFinancieros[1].datos} />}
           />
           <Route
             path="reporte-de-informacion-intercompañias"
-            element={<h1>Reporte de Información Intercompañias</h1>}
+            element={<ContenidoInterno datos={estadosFinancieros[2].datos} />}
           />
         </Route>
         <Route
           path="notas-a-los-estados-financieros"
           element={<VistaInterna datos={notasEstadosFinancieros} />}
         >
-          <Route index element={<h1>Notas Trimestrales</h1>} />
+          <Route
+            index
+            element={
+              <ContenidoInterno datos={notasEstadosFinancieros[0].datos} />
+            }
+          />
           <Route
             path="notas-cierre-anual"
-            element={<h1>Consulta Estados Financieros</h1>}
+            element={
+              <ContenidoInterno datos={notasEstadosFinancieros[1].datos} />
+            }
           />
         </Route>
       </Route>
@@ -144,56 +198,79 @@ export function App() {
           path="cargue-inicial"
           element={<VistaInterna datos={cargueInicial} />}
         >
-          <Route index element={<h1>Presupuesto</h1>} />
-          <Route path="real" element={<h1>Real</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={cargueInicial[0].datos} />}
+          />
+          <Route
+            path="real"
+            element={<ContenidoInterno datos={cargueInicial[1].datos} />}
+          />
         </Route>
         <Route
           path="generacion-de-informe-de-junta"
           element={<VistaInterna datos={generacionDeInformeDeJunta} />}
         >
-          <Route index element={<h1>Método de Participación</h1>} />
+          <Route
+            index
+            element={
+              <ContenidoInterno datos={generacionDeInformeDeJunta[0].datos} />
+            }
+          />
           <Route
             path="asignacion-subconceptos"
-            element={<h1>Asignación Subconpcetos</h1>}
+            element={
+              <ContenidoInterno datos={generacionDeInformeDeJunta[1].datos} />
+            }
           />
           <Route
             path="detalle-variacion-variable"
-            element={<h1>Detalle Variación Balance</h1>}
+            element={
+              <ContenidoInterno datos={generacionDeInformeDeJunta[2].datos} />
+            }
           />
           <Route
             path="validacion-cifras"
-            element={<h1>Validación Cifras</h1>}
+            element={
+              <ContenidoInterno datos={generacionDeInformeDeJunta[3].datos} />
+            }
           />
         </Route>
         <Route
           path="comentarios-por-area"
           element={<VistaInterna datos={comentariosPorArea} />}
         >
-          <Route index element={<h1>Comentarios</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={comentariosPorArea[0].datos} />}
+          />
         </Route>
         <Route
           path="comentarios-generales"
           element={<VistaInterna datos={comentariosGenerales} />}
         >
-          <Route index element={<h1>Comentarios</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={comentariosGenerales[0].datos} />}
+          />
         </Route>
         <Route
           path="redondeo-de-cifras"
           element={<VistaInterna datos={redondeoDeCifras} />}
         >
-          <Route index element={<h1>Redondeo</h1>} />
-        </Route>
-        <Route
-          path="redondeo-de-cifras"
-          element={<VistaInterna datos={redondeoDeCifras} />}
-        >
-          <Route index element={<h1>Redondeo</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={redondeoDeCifras[0].datos} />}
+          />
         </Route>
         <Route
           path="parametrizacion"
           element={<VistaInterna datos={parametrizacion} />}
         >
-          <Route index element={<h1>Mantenimiento</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={parametrizacion[0].datos} />}
+          />
         </Route>
       </Route>
 
@@ -202,12 +279,50 @@ export function App() {
           path="/otros-informes-valorem"
           element={<VistaInterna datos={otrosInformesValorem} />}
         >
-          <Route index element={<h1>Datos Maestros</h1>} />
+          <Route
+            index
+            element={<ContenidoInterno datos={otrosInformesValorem[0].datos} />}
+          />
         </Route>
       </Route>
 
       <Route path="/informe-de-junta-caracol-tv" element={<LayoutHome />}>
         <Route index element={<VistaGrid datos={dataVista8} />} />
+        <Route
+          path="generar-detalle-por-concepto"
+          element={<VistaInterna datos={generalDetallePorConcepto} />}
+        >
+          <Route
+            index
+            element={
+              <ContenidoInterno datos={generalDetallePorConcepto[0].datos} />
+            }
+          />
+          <Route
+            path="detalle-de-subconcepto-por-concepto"
+            element={<ContenidoInterno datos={cargueInicial[1].datos} />}
+          />
+        </Route>
+        <Route
+          path="indicadores-financieros"
+          element={<VistaInterna datos={indicadoresFinancieros} />}
+        >
+          <Route
+            index
+            element={
+              <ContenidoInterno datos={indicadoresFinancieros[0].datos} />
+            }
+          />
+        </Route>
+        <Route
+          path="generar-version-final"
+          element={<VistaInterna datos={generarVersionFinal} />}
+        >
+          <Route
+            index
+            element={<ContenidoInterno datos={generarVersionFinal[0].datos} />}
+          />
+        </Route>
       </Route>
 
       {/* <Route path="*" element={<Navigate replace to="/home" />} /> */}

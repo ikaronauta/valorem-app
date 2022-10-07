@@ -7,7 +7,7 @@ export function MenuInterno({ datos }) {
   return (
     <nav className={styles.menuInterno}>
       {datos.map((dato) => {
-        return <ItemMenuInterno key={dato.id} dato={dato} />;
+        return <ItemMenuInterno dato={dato} />;
       })}
     </nav>
   );

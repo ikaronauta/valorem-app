@@ -1,0 +1,17 @@
+.contenedorPrincipal {
+  width: 100%;
+  padding: 0.5rem 4rem;
+}
+
+.contenedorPrincipal > ul > li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+  padding: 1.3rem 1rem;
+  color: #3b6f9a;
+  font-weight: bolder;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 5px;
+}
