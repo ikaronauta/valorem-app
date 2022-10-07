@@ -2,7 +2,7 @@ export const estadosFinancieros = [
   {
     title: "Cargue Estados Financieros",
     icon: "newspaper",
-    ruta: "/home/reportes-financieros-y-otros-reportes/estados-financieros",
+    ruta: "/reportes-financieros-y-otros-reportes/estados-financieros",
     datos: [
       {
         id: 1,
@@ -14,7 +14,7 @@ export const estadosFinancieros = [
   {
     title: "Consulta Estados Financieros",
     icon: "reader",
-    ruta: "/home/reportes-financieros-y-otros-reportes/estados-financieros/consulta-estados-financieros",
+    ruta: "/reportes-financieros-y-otros-reportes/estados-financieros/consulta-estados-financieros",
     datos: [
       {
         id: 1,
@@ -26,7 +26,7 @@ export const estadosFinancieros = [
   {
     title: "Reporte de Información Intercompañias",
     icon: "document",
-    ruta: "/home/reportes-financieros-y-otros-reportes/estados-financieros/reporte-de-informacion-intercompañias",
+    ruta: "/reportes-financieros-y-otros-reportes/estados-financieros/reporte-de-informacion-intercompañias",
     datos: [
       {
         id: 1,
@@ -41,7 +41,7 @@ export const notasEstadosFinancieros = [
   {
     title: "Notas Trimestrales",
     icon: "newspaper",
-    ruta: "/home/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
+    ruta: "/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
     datos: [
       {
         id: 1,
@@ -63,7 +63,7 @@ export const notasEstadosFinancieros = [
   {
     title: "Notas Cierre Anual",
     icon: "newspaper",
-    ruta: "/home/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros/notas-cierre-anual",
+    ruta: "/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros/notas-cierre-anual",
     datos: [
       {
         id: 1,

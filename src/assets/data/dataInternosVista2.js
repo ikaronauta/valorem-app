@@ -2,7 +2,7 @@ export const notasConsolidacion = [
   {
     title: "Notas Consolidación",
     icon: "newspaper",
-    ruta: "/home/elaboracion-notas-consolidacion",
+    ruta: "/elaboracion-de-notas-consolidas",
     datos: [
       {
         id: 1,
@@ -79,7 +79,7 @@ export const notasConsolidacion = [
   {
     title: "Preparación",
     icon: "calendar-clear",
-    ruta: "/home/elaboracion-notas-consolidacion/preparacion",
+    ruta: "/elaboracion-de-notas-consolidas/preparacion",
     datos: [
       {
         id: 1,

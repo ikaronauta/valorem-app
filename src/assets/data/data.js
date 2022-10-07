@@ -9,25 +9,25 @@ export const dataHome = [
     id: 2,
     content: "Elaboración Notas Consolidadas",
     icon: "bookmarks",
-    ruta: "/home/elaboracion-notas-consolidacion",
+    ruta: "/elaboracion-de-notas-consolidas",
   },
   {
     id: 3,
     content: "Reportes financieros y otros reportes Compañías del Grupo",
     icon: "card",
-    ruta: "/home/reportes-financieros-y-otros-reportes",
+    ruta: "/reportes-financieros-y-otros-reportes",
   },
   {
     id: 4,
     content: "Informe de Junta",
     icon: "albums",
-    ruta: "/home/informe-de-junta",
+    ruta: "/informe-de-junta",
   },
   {
     id: 5,
     content: "Otros Informes VALOREM",
     icon: "archive",
-    ruta: "/home/otros-informes-valorem",
+    ruta: "/otros-informes-valorem",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const dataHome = [
     id: 8,
     content: "Informe de Junta Caracol TV",
     icon: "copy",
-    ruta: "/home/informe-de-junta-caracol-tv",
+    ruta: "/informe-de-junta-caracol-tv",
   },
 ];
 
@@ -87,13 +87,13 @@ export const dataVista3 = [
     id: 1,
     content: "Estados Financieros",
     icon: "briefcase",
-    ruta: "/home/reportes-financieros-y-otros-reportes/estados-financieros",
+    ruta: "/reportes-financieros-y-otros-reportes/estados-financieros",
   },
   {
     id: 2,
     content: "Notas a los Estados Financieros",
     icon: "clipboard",
-    ruta: "/home/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
+    ruta: "/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
   },
 ];
 
@@ -102,43 +102,43 @@ export const dataVista4 = [
     id: 1,
     content: "Cargue Inicial",
     icon: "clipboard",
-    ruta: "/home/informe-de-junta/cargue-inicial",
+    ruta: "/informe-de-junta/cargue-inicial",
   },
   {
     id: 2,
     content: "Generación de Informe de Junta",
     icon: "create",
-    ruta: "/home/informe-de-junta/generacion-de-informe-de-junta",
+    ruta: "/informe-de-junta/generacion-de-informe-de-junta",
   },
   {
     id: 3,
     content: "Comentarios por Área",
     icon: "chatbox",
-    ruta: "/home/informe-de-junta/comentarios-por-area",
+    ruta: "/informe-de-junta/comentarios-por-area",
   },
   {
     id: 4,
     content: "Comentarios Generales",
     icon: "chatbubbles",
-    ruta: "/home/informe-de-junta/comentarios-generales",
+    ruta: "/informe-de-junta/comentarios-generales",
   },
   {
     id: 5,
     content: "Redondedo de Cifras",
     icon: "calculator",
-    ruta: "/home/informe-de-junta/redondeo-de-cifras",
+    ruta: "/informe-de-junta/redondeo-de-cifras",
   },
   {
     id: 6,
     content: "Informe de Junta",
     icon: "receipt",
-    ruta: "/home/informe-de-junta/informe-de-junta",
+    ruta: "/informe-de-junta",
   },
   {
     id: 7,
     content: "Parametrización",
     icon: "push",
-    ruta: "/home/informe-de-junta/parametrizacion",
+    ruta: "/informe-de-junta/parametrizacion",
   },
 ];
 
