@@ -1,5 +1,6 @@
 export const administracion = [
   {
+    id: 1,
     title: "Administración",
     icon: "newspaper",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/administracion",
@@ -30,6 +31,7 @@ export const administracion = [
 
 export const cargaDeDatos = [
   {
+    id: 1,
     title: "Matriz de Inversión",
     icon: "newspaper",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos",
@@ -42,6 +44,7 @@ export const cargaDeDatos = [
     ],
   },
   {
+    id: 2,
     title: "Tasa de Cambio",
     icon: "reader",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/tasa-de-cambio",
@@ -54,6 +57,7 @@ export const cargaDeDatos = [
     ],
   },
   {
+    id: 3,
     title: "Cargue de Información",
     icon: "receipt",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/cargue-de-informacion",
@@ -66,6 +70,7 @@ export const cargaDeDatos = [
     ],
   },
   {
+    id: 4,
     title: "Reportes",
     icon: "document",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos/reportes",
@@ -101,6 +106,7 @@ export const cargaDeDatos = [
 
 export const conciliacion = [
   {
+    id: 1,
     title: "Ejecutar Conciliación",
     icon: "copy",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion",
@@ -113,6 +119,7 @@ export const conciliacion = [
     ],
   },
   {
+    id: 2,
     title: "Inputs",
     icon: "layers",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion/inputs",
@@ -130,6 +137,7 @@ export const conciliacion = [
     ],
   },
   {
+    id: 3,
     title: "Reportes",
     icon: "newspaper",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion/reportes",
@@ -160,6 +168,7 @@ export const conciliacion = [
 
 export const consolidacion = [
   {
+    id: 1,
     title: "Ejecutar Consolidación",
     icon: "receipt",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion",
@@ -172,6 +181,7 @@ export const consolidacion = [
     ],
   },
   {
+    id: 2,
     title: "Inputs",
     icon: "layers",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion/inputs",
@@ -184,6 +194,7 @@ export const consolidacion = [
     ],
   },
   {
+    id: 3,
     title: "Reportes",
     icon: "newspaper",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion/reportes",
@@ -224,6 +235,7 @@ export const consolidacion = [
 
 export const reportes = [
   {
+    id: 1,
     title: "Reportes",
     icon: "newspaper",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/reportes",

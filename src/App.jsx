@@ -1,5 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
-import { URL_SAP } from "./assets/data/variables.js"
+import { Route, Routes } from "react-router-dom";
 
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
 import { ChangePassword } from "./views/login/ChangePassword";
@@ -36,9 +35,10 @@ import {
   comentariosPorArea,
   comentariosGenerales,
   redondeoDeCifras,
-  parametrizacion
+  parametrizacion,
 } from "./assets/data/dataInternosVista4.js";
-import { otrosInformesValorem } from "./assets/data/dataInternosVista5.js"
+import { otrosInformesValorem } from "./assets/data/dataInternosVista5.js";
+import { ContenidoInterno } from "./components/ContenidoInterno";
 
 export function App() {
   return (
@@ -62,7 +62,7 @@ export function App() {
           path="administracion"
           element={<VistaInterna datos={administracion} />}
         >
-          <Route index element={<h1>Administración</h1>} />
+          <Route index element={<ContenidoInterno datos={administracion} />} />
         </Route>
         <Route
           path="carga-datos"
@@ -196,7 +196,7 @@ export function App() {
           <Route index element={<h1>Mantenimiento</h1>} />
         </Route>
       </Route>
-      
+
       <Route path="/otros-informes-valorem" element={<LayoutHome />}>
         <Route
           path="/otros-informes-valorem"
@@ -211,7 +211,6 @@ export function App() {
       </Route>
 
       {/* <Route path="*" element={<Navigate replace to="/home" />} /> */}
-
     </Routes>
   );
 }
