@@ -37,6 +37,12 @@
 @media only screen and (max-width: 720px) {
   .logo {
     max-width: 80%;
+    margin-bottom: 0;
+  }
+
+  .carrusel {
+    width: 100%;
+
   }
 }
 

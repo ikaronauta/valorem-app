@@ -47,6 +47,11 @@
 }
 
 @media only screen and (max-width: 720px) {
+  .contenedor {
+    height: auto;
+    margin: 2rem 0;
+  }
+
   .contenedor h1 {
     font-size: 1.7rem;
   }
