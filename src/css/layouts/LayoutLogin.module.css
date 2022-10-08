@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .contenedorSuperior {
@@ -30,8 +31,10 @@
 }
 
 .carrusel {
+  position: absolute;
   width: 80%;
   margin: 5% 0;
+  bottom: 1rem;
 }
 
 @media only screen and (max-width: 720px) {
@@ -41,7 +44,7 @@
   }
 
   .carrusel {
-    width: 100%;
+    width: 90%;
 
   }
 }
