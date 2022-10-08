@@ -8,7 +8,7 @@ export function LayoutLogin() {
     <div className={styles.contenedorGlobal}>
       <div className={styles.contenedorPrincipal}>
         <div className={styles.contenedorSuperior}>
-          <img src={analitica} alt="Analitica" />
+          <img src={analitica} alt="Analitica" className={styles.logo} />
           <Outlet />
         </div>
         <img src={carrusel} alt="Analitica" className={styles.carrusel} />
