@@ -9,7 +9,7 @@ export function LayoutHome() {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate("/home");
+    navigate(-1);
   };
 
   return (

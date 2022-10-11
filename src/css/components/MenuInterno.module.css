@@ -17,6 +17,7 @@
   margin: 0 0.5rem;
   color: var(--main-color);
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .containerIcon {
