@@ -1,4 +1,4 @@
-header{
+header {
   width: 100%;
   background-color: var(--bg-third-color);
   border-bottom: 0.125rem solid #eff4f9;
@@ -10,6 +10,7 @@ header{
   display: flex;
   align-items: center;
   flex-flow: row wrap;
+  left: -100%;
 }
 
 .containerInterno {
@@ -37,14 +38,13 @@ label > ion-icon {
   cursor: pointer;
 }
 
-.active{
-  left: 0;
-}
-
-.disable{
+.active {
   left: -100%;
 }
 
+.disable {
+  left: -100%;
+}
 
 @media only screen and (max-width: 768px) {
   .menuInterno {
@@ -59,7 +59,7 @@ label > ion-icon {
     padding: 1rem;
   }
 
-  .containerInterno{
+  .containerInterno {
     width: 100%;
     padding: 0.5rem 1rem;
     background-color: var(--bg-third-color);
