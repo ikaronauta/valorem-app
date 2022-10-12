@@ -5,9 +5,19 @@ import styles from "../css/components/MenuInterno.module.css";
 export function VistaInterna({ datos }) {
   const [datosInternos, setDatosInternos] = useState(datos[0].datos);
 
+  function prueba(){
+    document.getElementById("prueba").style.left = "-100%";
+  }
+
   return (
-    <div>
-      <nav className={styles.menuInterno}>
+    <>
+    <header>
+      <div>
+        <label onClick={prueba}>
+          <ion-icon name="menu" />
+        </label>
+      </div>
+      <nav id="prueba" className={styles.menuInterno}>
         {datos.map((dato) => {
           return (
             <>
@@ -27,7 +37,8 @@ export function VistaInterna({ datos }) {
           );
         })}
       </nav>
-      <ContenidoInterno datos={datosInternos} />
-    </div>
+    </header>
+    <ContenidoInterno datos={datosInternos} />
+    </>
   );
 }

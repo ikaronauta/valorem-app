@@ -1,11 +1,12 @@
-.menuInterno {
+header{
   width: 100%;
-  height: auto;
   background-color: var(--bg-third-color);
-  padding: 1rem 3rem;
   border-bottom: 0.125rem solid #eff4f9;
   box-shadow: inset 0 -0.25rem 0 -0.125rem #d1e0ee;
+}
 
+.menuInterno {
+  padding: 1rem 3rem;
   display: flex;
   align-items: center;
   flex-flow: row wrap;
@@ -29,9 +30,41 @@
   color: #3b6f9a;
 }
 
+label > ion-icon {
+  display: none;
+  font-size: 3rem;
+  color: #3b6f9a;
+  cursor: pointer;
+}
+
+.active{
+  left: 0;
+}
+
+.disable{
+  left: -100%;
+}
+
+
 @media only screen and (max-width: 768px) {
   .menuInterno {
+    width: 100%;
+    position: absolute;
     flex-direction: column;
-    align-items: flex-start;
+    padding: 0;
+  }
+
+  label > ion-icon {
+    display: block;
+    padding: 1rem;
+  }
+
+  .containerInterno{
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: var(--bg-third-color);
+    margin: 0;
+    border-bottom: 0.2rem solid #eff4f9;
+    box-shadow: inset 0 -0.25rem 0 -0.125rem #d1e0ee;
   }
 }
