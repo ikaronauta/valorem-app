@@ -2,13 +2,11 @@ import { useState } from "react";
 import { ContenidoInterno } from "../components/ContenidoInterno";
 import styles from "../css/components/MenuInterno.module.css";
 
-export function VistaInterna({ datos, title }) {
+export function VistaInterna({ datos }) {
   const [datosInternos, setDatosInternos] = useState(datos[0].datos);
 
-  if (title) document.getElementById("title").innerHTML = title;
-  else document.getElementById("title").innerHTML = "Vista Interna";
-
   function ocultarMostrar() {
+    console.log(document.getElementById("menu").style.left);
     if (document.getElementById("menu").style.left === "-100%")
       document.getElementById("menu").style.left = "0%";
     else document.getElementById("menu").style.left = "-100%";
@@ -25,8 +23,9 @@ export function VistaInterna({ datos, title }) {
         <nav id="menu" className={styles.menuInterno} style={{ left: "-100%" }}>
           {datos.map((dato) => {
             return (
-              <div key={dato.id}>
+              <>
                 <div
+                  key={dato.id}
                   className={styles.containerInterno}
                   onClick={function () {
                     setDatosInternos(dato.datos);
@@ -38,7 +37,7 @@ export function VistaInterna({ datos, title }) {
                   </div>
                   <h3>{dato.title}</h3>
                 </div>
-              </div>
+              </>
             );
           })}
         </nav>
