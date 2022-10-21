@@ -61,7 +61,15 @@ export function App() {
         path="/procesos-de-consolidacion-de-estados-financieros"
         element={<LayoutHome />}
       >
-        <Route index element={<VistaGrid datos={dataVista1} />} />
+        <Route
+          index
+          element={
+            <VistaGrid
+              datos={dataVista1}
+              title="Procesos de Consolidación Estados Financieros"
+            />
+          }
+        />
         <Route
           path="administracion"
           element={<VistaInterna datos={administracion} />}

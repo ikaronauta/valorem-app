@@ -1,7 +1,6 @@
 import styles from "../css/components/ContenidoInterno.module.css";
 
 export function ContenidoInterno({ datos }) {
-  console.log(datos);
   return (
     <div className={styles.contenedorPrincipal}>
       <ul>
