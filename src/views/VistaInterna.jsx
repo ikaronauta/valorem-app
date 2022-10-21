@@ -2,8 +2,11 @@ import { useState } from "react";
 import { ContenidoInterno } from "../components/ContenidoInterno";
 import styles from "../css/components/MenuInterno.module.css";
 
-export function VistaInterna({ datos }) {
+export function VistaInterna({ datos, title }) {
   const [datosInternos, setDatosInternos] = useState(datos[0].datos);
+
+  if (title) document.getElementById("title").innerHTML = title;
+  else document.getElementById("title").innerHTML = "Vista Interna";
 
   function ocultarMostrar() {
     if (document.getElementById("menu").style.left === "-100%")
