@@ -66,7 +66,7 @@ export function App() {
           element={
             <VistaGrid
               datos={dataVista1}
-              title="Procesos de Consolidación Estados Financieros"
+              title="Proceso de Consolidación Estados Financieros"
             />
           }
         />
@@ -102,7 +102,15 @@ export function App() {
         path="/reportes-financieros-y-otros-reportes"
         element={<LayoutHome />}
       >
-        <Route index element={<VistaGrid datos={dataVista3} />} />
+        <Route
+          index
+          element={
+            <VistaGrid
+              datos={dataVista3}
+              title="Reportes financieros y otros reportes Compañías del Grupo"
+            />
+          }
+        />
         <Route
           path="estados-financieros"
           element={<VistaInterna datos={estadosFinancieros} />}
@@ -115,7 +123,10 @@ export function App() {
       </Route>
 
       <Route path="/informe-de-junta" element={<LayoutHome />}>
-        <Route index element={<VistaGrid datos={dataVista4} />} />
+        <Route
+          index
+          element={<VistaGrid datos={dataVista4} title="Informe de Junta" />}
+        />
         <Route
           path="cargue-inicial"
           element={<VistaInterna datos={cargueInicial} />}
@@ -150,7 +161,12 @@ export function App() {
       </Route>
 
       <Route path="/informe-de-junta-caracol-tv" element={<LayoutHome />}>
-        <Route index element={<VistaGrid datos={dataVista8} />} />
+        <Route
+          index
+          element={
+            <VistaGrid datos={dataVista8} title="Informe de Junta Caravol TV" />
+          }
+        />
         <Route
           path="generar-detalle-por-concepto"
           element={<VistaInterna datos={generalDetallePorConcepto} />}
