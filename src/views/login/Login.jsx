@@ -41,7 +41,7 @@ export function Login() {
       } else {
         navigate("/");
         Swal.fire({
-          text: "¡Debe ingresar toda la información para poder continuar!",
+          text: "¡Datos incorrectos!",
           confirmButtonColor: "#005DC9",
           confirmButtonText: "Siguiente",
           icon: "error",
