@@ -5,7 +5,6 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 export function Login() {
-  const [login, setLogin] = useState(false);
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
 
@@ -16,18 +15,40 @@ export function Login() {
     const result = await axios.get(url);
     const response = JSON.parse(result.data.slice(1, -1));
 
+    let fechaVencimiento;
+
     localStorage.setItem("VALOREM_APP_LOGGED", JSON.stringify(response));
     console.log(response);
 
-    if (response.hasOwnProperty("ID_ESTADO")) {
-      setLogin(true);
-      console.log(login);
-      navigate("/home");
+    if (user === "" || pass === "") {
+      Swal.fire({
+        text: "¡Debe ingresar toda la información para poder continuar!",
+        confirmButtonColor: "#005DC9",
+        confirmButtonText: "Siguiente",
+        icon: "error",
+      });
     } else {
-      setLogin(false);
-      console.log(login);
-      navigate("/");
-      Swal.fire("Error");
+      if (response.hasOwnProperty("ID_ESTADO")) {
+        fechaVencimiento = new Date(
+          response.FECHA_VENCIMIENTO
+        ).toLocaleDateString();
+        navigate("/home");
+        Swal.fire({
+          title: `Bienvenido ${response.USUARIO}`,
+          text: `Fecha vencimiento clave: ${fechaVencimiento}`,
+          confirmButtonColor: "#005DC9",
+          confirmButtonText: "Siguiente",
+          icon: "success",
+        });
+      } else {
+        navigate("/");
+        Swal.fire({
+          text: "¡Debe ingresar toda la información para poder continuar!",
+          confirmButtonColor: "#005DC9",
+          confirmButtonText: "Siguiente",
+          icon: "error",
+        });
+      }
     }
   };
 
