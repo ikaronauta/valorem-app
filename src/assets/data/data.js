@@ -2,49 +2,55 @@ export const dataHome = [
   {
     id: 1,
     content: "Proceso de Consolidación Estados Financieros",
-    icon: "play-forward",
+    icon: "process",
     ruta: "/procesos-de-consolidacion-de-estados-financieros",
   },
   {
     id: 2,
     content: "Elaboración Notas Consolidadas",
-    icon: "bookmarks",
+    icon: "accelerated",
     ruta: "/elaboracion-de-notas-consolidas",
   },
   {
     id: 3,
     content: "Reportes financieros y otros reportes Compañías del Grupo",
-    icon: "card",
+    icon: "expense-report",
     ruta: "/reportes-financieros-y-otros-reportes",
   },
   {
     id: 4,
     content: "Informe de Junta",
-    icon: "albums",
+    icon: "manager-insight",
     ruta: "/informe-de-junta",
   },
   {
     id: 5,
-    content: "Otros Informes VALOREM",
-    icon: "archive",
-    ruta: "/otros-informes-valorem",
+    content: "Planeación Financiera",
+    icon: "legend",
+    ruta: "/informe-de-junta",
   },
   {
     id: 6,
-    content: "Otros Informes Refocosta",
-    icon: "browsers",
-    ruta: "/home",
+    content: "Otros Informes VALOREM",
+    icon: "multiselect-all",
+    ruta: "/otros-informes-valorem",
   },
   {
     id: 7,
-    content: "Otros KOBA",
-    icon: "checkbox",
+    content: "Otros Informes Refocosta",
+    icon: "add-coursebook",
     ruta: "/home",
   },
   {
     id: 8,
+    content: "Otros KOBA",
+    icon: "add-product",
+    ruta: "/home",
+  },
+  {
+    id: 9,
     content: "Informe de Junta Caracol TV",
-    icon: "copy",
+    icon: "timesheet",
     ruta: "/informe-de-junta-caracol-tv",
   },
 ];
@@ -53,31 +59,31 @@ export const dataVista1 = [
   {
     id: 1,
     content: "Administración",
-    icon: "play-forward",
+    icon: "process",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/administracion",
   },
   {
     id: 2,
     content: "Carga de Datos",
-    icon: "cloud-upload",
+    icon: "accelerated",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/carga-datos",
   },
   {
     id: 3,
     content: "Conciliación",
-    icon: "bag",
+    icon: "expense-report",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/conciliacion",
   },
   {
     id: 4,
     content: "Consolidación",
-    icon: "create",
+    icon: "manager-insight",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/consolidacion",
   },
   {
     id: 5,
     content: "Reportes",
-    icon: "document-attach",
+    icon: "legend",
     ruta: "/procesos-de-consolidacion-de-estados-financieros/reportes",
   },
 ];
@@ -86,15 +92,15 @@ export const dataVista3 = [
   {
     id: 1,
     content: "Estados Financieros",
-    icon: "briefcase",
+    icon: "order-status",
     ruta: "/reportes-financieros-y-otros-reportes/estados-financieros",
   },
-  {
-    id: 2,
-    content: "Notas a los Estados Financieros",
-    icon: "clipboard",
-    ruta: "/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
-  },
+  // {
+  //   id: 2,
+  //   content: "Notas a los Estados Financieros",
+  //   icon: "clipboard",
+  //   ruta: "/reportes-financieros-y-otros-reportes/notas-a-los-estados-financieros",
+  // },
 ];
 
 export const dataVista4 = [

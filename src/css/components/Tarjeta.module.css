@@ -12,9 +12,10 @@
   cursor: pointer;
 }
 
-.tarjeta > ion-icon {
-  font-size: 4rem;
+.tarjeta > .icon {
   position: absolute;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 3rem;
+  right: 3rem;
+  width: 3rem;
+  color: #8fb4d3;
 }

@@ -6,7 +6,6 @@ export function VistaInterna({ datos }) {
   const [datosInternos, setDatosInternos] = useState(datos[0].datos);
 
   function ocultarMostrar() {
-    console.log(document.getElementById("menu").style.left);
     if (document.getElementById("menu").style.left === "-100%")
       document.getElementById("menu").style.left = "0%";
     else document.getElementById("menu").style.left = "-100%";
