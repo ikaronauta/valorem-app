@@ -17,9 +17,6 @@ export function Login() {
 
     let fechaVencimiento;
 
-    localStorage.setItem("VALOREM_APP_LOGGED", JSON.stringify(response));
-    console.log(response);
-
     if (user === "" || pass === "") {
       Swal.fire({
         text: "¡Debe ingresar toda la información para poder continuar!",
@@ -29,6 +26,7 @@ export function Login() {
       });
     } else {
       if (response.hasOwnProperty("ID_ESTADO")) {
+        localStorage.setItem("VALOREM_APP_LOGGED", JSON.stringify(response));
         fechaVencimiento = new Date(
           response.FECHA_VENCIMIENTO
         ).toLocaleDateString();

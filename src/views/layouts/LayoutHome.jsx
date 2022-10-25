@@ -1,5 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import analiticaLogo from "../../assets/img/layout/analitica-logo-menu.png";
+import Swal from "sweetalert2";
 
 // Importación Estilos
 import styles from "../../css/general.module.css";
@@ -10,6 +11,25 @@ export function LayoutHome() {
 
   const handleBack = () => {
     navigate(-1);
+  };
+
+  const handleLogOff = () => {
+    Swal.fire({
+      text: "¿Está seguro que desea cerrar la sesión?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#005DC9",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, Cerrar sesión",
+      cancelButtonText: "Cancelar",
+    }).then((result) => {
+      if (result.isConfirmed) logOff();
+    });
+  };
+
+  const logOff = () => {
+    navigate("/");
+    localStorage.clear();
   };
 
   return (
@@ -24,12 +44,15 @@ export function LayoutHome() {
               <img src={analiticaLogo} alt="Analítica" />
             </Link>
           </div>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            <button className={navBar.button}>
-              <ion-icon name="power"></ion-icon>
-              Log Off
-            </button>
-          </Link>
+          <button
+            className={navBar.button}
+            onClick={() => {
+              handleLogOff();
+            }}
+          >
+            <ion-icon name="power"></ion-icon>
+            Log Off
+          </button>
         </div>
         <div className={navBar.sectionLine}>
           <div className={navBar.title} id="title"></div>
