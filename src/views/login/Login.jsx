@@ -3,10 +3,13 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "../../css/general.module.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useUserSetAuth } from "../../context/AuthProvider";
 
 export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+
+  const cargarUsuario = useUserSetAuth();
 
   const navigate = useNavigate();
 
@@ -14,6 +17,8 @@ export function Login() {
     const url = `https://valoremanalitica.bpmco.co/login?user=${user}&pass=${pass}`;
     const result = await axios.get(url);
     const response = JSON.parse(result.data.slice(1, -1));
+
+    cargarUsuario(response);
 
     let fechaVencimiento;
 

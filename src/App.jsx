@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { useEffect } from "react";
 
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
 import { ChangePassword } from "./views/login/ChangePassword";
@@ -17,6 +16,8 @@ import {
   // dataVista4,
   // dataVista8,
 } from "./assets/data/data.js";
+import { AuthProvider } from "./context/AuthProvider";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 <>
   {/* 
@@ -50,25 +51,28 @@ import {
 </>;
 
 export function App() {
-  useEffect(() => {
-    if (localStorage.getItem("VALOREM_APP_LOGGED")) console.log("OK");
-    else console.log("NO");
-  }, []);
-
   return (
-    <Routes>
-      <Route path="/" element={<LayoutLogin />}>
-        <Route index element={<Login />} />
-        <Route path="change-password" element={<ChangePassword />} />
-        <Route path="unlock-user" element={<UnlockUser />} />
-      </Route>
+    <AuthProvider>
+      <Routes>
+        <Route path="/" element={<LayoutLogin />}>
+          <Route index element={<Login />} />
+          <Route path="change-password" element={<ChangePassword />} />
+          <Route path="unlock-user" element={<UnlockUser />} />
+        </Route>
 
-      <Route path="/home" element={<LayoutHome />}>
-        <Route index element={<VistaGrid datos={dataHome} />} />
-      </Route>
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <LayoutHome />
+            </ProtectedRoute>
+          }
+        >
+          <Route index element={<VistaGrid datos={dataHome} />} />
+        </Route>
 
-      <>
-        {/* <Route
+        <>
+          {/* <Route
         path="/procesos-de-consolidacion-de-estados-financieros"
         
         element={<LayoutHome />}
@@ -170,8 +174,9 @@ export function App() {
       </Route>
 
        */}
-      </>
-      <Route path="*" element={<Navigate replace to="/home" />} />
-    </Routes>
+        </>
+        <Route path="*" element={<Navigate replace to="/home" />} />
+      </Routes>
+    </AuthProvider>
   );
 }

@@ -5,9 +5,11 @@ import Swal from "sweetalert2";
 // Importación Estilos
 import styles from "../../css/general.module.css";
 import navBar from "../../css/Navbar.module.css";
+import { useUserSetAuth } from "../../context/AuthProvider";
 
 export function LayoutHome() {
   const navigate = useNavigate();
+  const cargarUsuario = useUserSetAuth();
 
   const handleBack = () => {
     navigate(-1);
@@ -29,6 +31,7 @@ export function LayoutHome() {
 
   const logOff = () => {
     navigate("/");
+    cargarUsuario({});
     localStorage.clear();
   };
 
