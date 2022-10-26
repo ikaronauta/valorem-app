@@ -1,6 +1,3 @@
-//BPMCO_PORTAL
-//BPMCOInicio12345678.
-
 import axios from "axios";
 
 export const LoginAuth = async (user, pass) => {

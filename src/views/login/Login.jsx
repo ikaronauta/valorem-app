@@ -29,6 +29,7 @@ export function Login() {
             data.FECHA_VENCIMIENTO
           ).toLocaleDateString();
           cargarUsuario(data);
+          localStorage.setItem("VALOREM_APP", data.USUARIO);
           navigate("/home");
 
           Swal.fire({

@@ -1,3 +1,11 @@
+//CPEDRAZA
+//BPMCO_PORTAL
+//BPMCOInicio12345678.
+
+//EndPints
+//Login: https://valoremanalitica.bpmco.co/login?user=${user}&pass=${pass}
+//DataHome: https://valoremanalitica.bpmco.co/roles?user=${user}
+
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
@@ -8,6 +16,8 @@ import { UnlockUser } from "./views/login/UnlockUser";
 import { LayoutHome } from "./views/layouts/LayoutHome";
 import { VistaGrid } from "./views/VistaGrid";
 //import { VistaInterna } from "./views/VistaInterna";
+
+import { Urls } from "./context/Urls";
 
 import {
   dataHome,
