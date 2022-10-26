@@ -19,13 +19,12 @@ import { VistaGrid } from "./views/VistaGrid";
 
 import { Urls } from "./context/Urls";
 
-import {
-  dataHome,
-  // dataVista1,
-  // dataVista3,
-  // dataVista4,
-  // dataVista8,
-} from "./assets/data/data.js";
+import //dataHome,
+// dataVista1,
+// dataVista3,
+// dataVista4,
+// dataVista8,
+"./assets/data/data.js";
 import { AuthProvider } from "./context/AuthProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -78,7 +77,7 @@ export function App() {
             </ProtectedRoute>
           }
         >
-          <Route index element={<VistaGrid datos={dataHome} />} />
+          <Route index element={<VistaGrid endPoint={Urls.DATA_HOME} />} />
         </Route>
 
         <>
