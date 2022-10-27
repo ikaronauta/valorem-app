@@ -32,7 +32,7 @@ export function UnlockUser() {
             )}</b></p></br><p>La nueva contraseña es temporal y no le sirve para iniciar sesión, primo debe cambiarla.</p>`,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
-            icon: "sucess",
+            icon: "success",
           });
           navigate("/change-password");
         } else {
