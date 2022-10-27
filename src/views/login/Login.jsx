@@ -4,6 +4,7 @@ import { loginAuth } from "../../auth/loginAuth";
 import Swal from "sweetalert2";
 import { useUserSetAuth } from "../../context/AuthProvider";
 import { PulseLoader } from "react-spinners";
+import { Icon } from "@ui5/webcomponents-react";
 
 import styles from "../../css/general.module.css";
 
@@ -11,8 +12,19 @@ export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showHiden, setShowHiden] = useState("show");
   const cargarUsuario = useUserSetAuth();
   const navigate = useNavigate();
+
+  const handleShowHiden = () => {
+    if (showHiden === "show") {
+      setShowHiden("hide");
+      document.getElementById("password").type = "text";
+    } else {
+      setShowHiden("show");
+      document.getElementById("password").type = "password";
+    }
+  };
 
   const handleLogin = () => {
     if (user === "" || pass === "") {
@@ -90,14 +102,22 @@ export function Login() {
               e.target.value.toUpperCase();
           }}
         />
-        <input
-          type="password"
-          placeholder="Contraseña"
-          className={styles.input}
-          onChange={(e) => {
-            setPass(e.target.value);
-          }}
-        />
+        <div className={styles.containerPass}>
+          <input
+            id="password"
+            type="password"
+            placeholder="Contraseña"
+            className={styles.inputPassword}
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+          />
+          <Icon
+            className={styles.icon}
+            name={showHiden}
+            onClick={handleShowHiden}
+          />
+        </div>
         <div className={styles.grupoBotones}>
           <button
             className={styles.boton}
