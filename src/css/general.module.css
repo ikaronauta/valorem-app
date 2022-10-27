@@ -5,6 +5,8 @@
   align-items: center;
   width: 400px;
   height: 400px;
+  position: relative;
+
 }
 
 .input {
@@ -44,12 +46,14 @@
   padding: 1rem;
   width: 100%;
   height: auto;
-  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .sppiner {
   position: absolute;
-  left: 45%;
 }
 
 @media only screen and (max-width: 720px) {

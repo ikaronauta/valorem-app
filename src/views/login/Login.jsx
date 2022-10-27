@@ -52,64 +52,68 @@ export function Login() {
             icon: "error",
           });
         }
-        setLoading(false);
       }
 
       function reject(data) {
         navigate("/");
+        console.log(data);
         Swal.fire({
           title: "!Acceso denegado!",
-          text: data.message + " - " + data.code,
+          text: "Revisar en la consola el ERROR",
           confirmButtonColor: "#005DC9",
           confirmButtonText: "Siguiente",
           icon: "error",
         });
       }
     }
+    setLoading(false);
   };
 
   return (
-    <div className={styles.contenedor}>
+    <>
       {loading ? (
         <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
       ) : (
         ""
       )}
-      <h1>PORTAL DE SERVICIO</h1>
-      <input
-        id="user"
-        type="text"
-        placeholder="Usuario"
-        className={styles.input}
-        onChange={(e) => {
-          setUser(e.target.value.toUpperCase());
-          document.getElementById("user").value = e.target.value.toUpperCase();
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        className={styles.input}
-        onChange={(e) => {
-          setPass(e.target.value);
-        }}
-      />
-      <div className={styles.grupoBotones}>
-        <button
-          className={styles.boton}
-          onClick={() => {
-            handleLogin();
+      <div className={styles.contenedor}>
+        <h1>PORTAL DE SERVICIO</h1>
+        <input
+          id="user"
+          type="text"
+          placeholder="Usuario"
+          className={styles.input}
+          onChange={(e) => {
+            setUser(e.target.value.toUpperCase());
+            document.getElementById("user").value =
+              e.target.value.toUpperCase();
           }}
-        >
-          Iniciar Sesión
-        </button>
-        <Link to="/change-password">
-          <button className={styles.boton}>Cambiar Contraseña</button>
-        </Link>
-        <Link to="/unlock-user">
-          <button className={styles.boton}>Desbloquear Usuario</button>
-        </Link>
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          className={styles.input}
+          onChange={(e) => {
+            setPass(e.target.value);
+          }}
+        />
+        <div className={styles.grupoBotones}>
+          <button
+            className={styles.boton}
+            onClick={() => {
+              handleLogin();
+            }}
+          >
+            Iniciar Sesión
+          </button>
+          <Link to="/change-password">
+            <button className={styles.boton}>Cambiar Contraseña</button>
+          </Link>
+          <Link to="/unlock-user">
+            <button className={styles.boton}>Desbloquear Usuario</button>
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
