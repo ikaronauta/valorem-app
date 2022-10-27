@@ -27,7 +27,7 @@ export function UnlockUser() {
         if (data.result === "OK") {
           Swal.fire({
             title: data.message.substring(0, 42),
-            html: `<p>Nueva conbtraseña: <b style='color:red'>${data.message.substring(
+            html: `<p>Nueva contraseña: <b style='color:red'>${data.message.substring(
               50
             )}</b></p></br><p>La nueva contraseña es temporal y no le sirve para iniciar sesión, primo debe cambiarla.</p>`,
             confirmButtonColor: "#005DC9",
