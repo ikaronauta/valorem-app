@@ -10,6 +10,7 @@ export function VistaGrid({ endPoint }) {
 
   const promesa = getData(endPoint);
   promesa.then((data) => {
+    console.log(data);
     setDatos(data);
   });
 
