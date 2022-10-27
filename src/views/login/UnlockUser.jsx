@@ -56,11 +56,13 @@ export function UnlockUser() {
     <div className={styles.contenedor}>
       <h1>PORTAL DE SERVICIO</h1>
       <input
+        id="user"
         type="text"
         placeholder="Usuario"
         className={styles.input}
         onChange={(e) => {
-          setUser(e.target.value);
+          setUser(e.target.value.toUpperCase());
+          document.getElementById("user").value = e.target.value.toUpperCase();
         }}
       />
       <div className={styles.grupoBotones}>

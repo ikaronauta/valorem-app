@@ -4,8 +4,6 @@ import Swal from "sweetalert2";
 import { changePasswordAuth } from "../../auth/changePasswordAuth";
 import styles from "../../css/general.module.css";
 
-//https://valoremanalitica.bpmco.co/changePass?user=BPMCO_PORTAL&pass=BPMCOInicio.12345678.&newPass=BPMCOInicio-12345678.
-
 export function ChangePassword() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
@@ -74,11 +72,13 @@ export function ChangePassword() {
     <div className={styles.contenedor}>
       <h1>PORTAL DE SERVICIO</h1>
       <input
+        id="user"
         type="text"
         placeholder="Usuario"
         className={styles.input}
         onChange={(e) => {
-          setUser(e.target.value);
+          setUser(e.target.value.toUpperCase());
+          document.getElementById("user").value = e.target.value.toUpperCase();
         }}
       />
       <input

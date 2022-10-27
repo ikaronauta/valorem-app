@@ -4,10 +4,12 @@ import styles from "../../css/general.module.css";
 import { loginAuth } from "../../auth/loginAuth";
 import Swal from "sweetalert2";
 import { useUserSetAuth } from "../../context/AuthProvider";
+import { PulseLoader } from "react-spinners";
 
 export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
+  const [loading, setLoading] = useState(false);
   const cargarUsuario = useUserSetAuth();
   const navigate = useNavigate();
 
@@ -21,8 +23,8 @@ export function Login() {
         icon: "error",
       });
     } else {
-      const promesa = loginAuth(user, pass);
-      promesa.then(resolve, reject);
+      setLoading(true);
+      loginAuth(user, pass).then(resolve, reject);
 
       function resolve(data) {
         if (data.ID_ESTADO === "05") {
@@ -50,6 +52,7 @@ export function Login() {
             icon: "error",
           });
         }
+        setLoading(false);
       }
 
       function reject(data) {
@@ -67,13 +70,20 @@ export function Login() {
 
   return (
     <div className={styles.contenedor}>
+      {loading ? (
+        <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
+      ) : (
+        ""
+      )}
       <h1>PORTAL DE SERVICIO</h1>
       <input
+        id="user"
         type="text"
         placeholder="Usuario"
         className={styles.input}
         onChange={(e) => {
-          setUser(e.target.value);
+          setUser(e.target.value.toUpperCase());
+          document.getElementById("user").value = e.target.value.toUpperCase();
         }}
       />
       <input

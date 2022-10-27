@@ -12,16 +12,18 @@ export function VistaGrid({ endPoint }) {
 
   useEffect(() => {
     setloaDing(true);
+
     getData(endPoint).then((data) => {
       setDatos(data);
       setloaDing(false);
+      setTimeout(() => {}, 5000);
     });
   }, [endPoint]);
 
   return (
     <div className={styles.outlet}>
       {loading ? (
-        <PulseLoader className={styles.sppiner} color="#005dc9" />
+        <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
       ) : (
         <Grid datos={datos} />
       )}

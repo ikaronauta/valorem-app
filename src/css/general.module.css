@@ -44,14 +44,12 @@
   padding: 1rem;
   width: 100%;
   height: auto;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 .sppiner {
-  margin-top: 10%;
+  position: absolute;
+  left: 45%;
 }
 
 @media only screen and (max-width: 720px) {
