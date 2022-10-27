@@ -50,7 +50,7 @@ export function ChangePassword() {
             text: data.message,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
-            icon: "succes",
+            icon: "success",
           });
           navigate("/");
         } else {
