@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../../css/general.module.css";
-import { LoginAuth } from "../../auth/LoginAuth";
+import { loginAuth } from "../../auth/loginAuth";
 import Swal from "sweetalert2";
 import { useUserSetAuth } from "../../context/AuthProvider";
 
@@ -14,13 +14,14 @@ export function Login() {
   const handleLogin = () => {
     if (user === "" || pass === "") {
       Swal.fire({
+        title: "Datos Incompletos",
         text: "¡Debe ingresar toda la información para poder continuar!",
         confirmButtonColor: "#005DC9",
         confirmButtonText: "Siguiente",
         icon: "error",
       });
     } else {
-      const promesa = LoginAuth(user, pass);
+      const promesa = loginAuth(user, pass);
       promesa.then(resolve, reject);
 
       function resolve(data) {
@@ -42,7 +43,8 @@ export function Login() {
         } else {
           navigate("/");
           Swal.fire({
-            text: "¡Datos incorrectos!",
+            title: data.result,
+            text: data.message,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
             icon: "error",

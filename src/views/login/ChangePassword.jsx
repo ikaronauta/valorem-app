@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { changePasswordAuth } from "../../auth/changePasswordAuth";
 import styles from "../../css/general.module.css";
 
 //https://valoremanalitica.bpmco.co/changePass?user=BPMCO_PORTAL&pass=BPMCOInicio.12345678.&newPass=BPMCOInicio-12345678.
@@ -11,9 +12,12 @@ export function ChangePassword() {
   const [newPass, setNewPass] = useState("");
   const [repeatNewPass, setRepeatNewPass] = useState("");
 
+  const navigate = useNavigate();
+
   const handleChangePassword = () => {
     if (user === "" || pass === "" || newPass === "" || repeatNewPass === "") {
       Swal.fire({
+        title: "Datos Incompletos",
         text: "¡Debe ingresar toda la información para poder continuar!",
         confirmButtonColor: "#005DC9",
         confirmButtonText: "Siguiente",
@@ -21,6 +25,7 @@ export function ChangePassword() {
       });
     } else if (pass === newPass) {
       Swal.fire({
+        title: "Datos Incorrectos",
         text: "¡La nueva contraseña debe ser diferente a la contraseña antigua!",
         confirmButtonColor: "#005DC9",
         confirmButtonText: "Siguiente",
@@ -33,13 +38,36 @@ export function ChangePassword() {
         confirmButtonText: "Siguiente",
         icon: "error",
       });
-    }
+    } else {
+      const respuesta = changePasswordAuth(user, pass, newPass);
+      respuesta.then(resolve, reject);
 
-    // console.log(user);
-    // console.log(pass);
-    // console.log(newPass);
-    // console.log(repeatNewPass);
-    // console.log(newPass === repeatNewPass);
+      function resolve(data) {
+        console.log(data);
+        if (data.result === "OK") {
+          Swal.fire({
+            title: data.result,
+            text: data.message,
+            confirmButtonColor: "#005DC9",
+            confirmButtonText: "Siguiente",
+            icon: "succes",
+          });
+          navigate("/");
+        } else {
+          Swal.fire({
+            title: data.result,
+            text: data.message,
+            confirmButtonColor: "#005DC9",
+            confirmButtonText: "Siguiente",
+            icon: "error",
+          });
+        }
+      }
+
+      function reject(data) {
+        console.log(data);
+      }
+    }
   };
 
   return (
