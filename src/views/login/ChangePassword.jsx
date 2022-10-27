@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { changePasswordAuth } from "../../auth/changePasswordAuth";
+import { PulseLoader } from "react-spinners";
+
 import styles from "../../css/general.module.css";
 
 export function ChangePassword() {
@@ -9,6 +11,7 @@ export function ChangePassword() {
   const [pass, setPass] = useState("");
   const [newPass, setNewPass] = useState("");
   const [repeatNewPass, setRepeatNewPass] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
@@ -37,11 +40,10 @@ export function ChangePassword() {
         icon: "error",
       });
     } else {
-      const respuesta = changePasswordAuth(user, pass, newPass);
-      respuesta.then(resolve, reject);
+      setLoading(true);
+      changePasswordAuth(user, pass, newPass).then(resolve, reject);
 
       function resolve(data) {
-        console.log(data);
         if (data.result === "OK") {
           Swal.fire({
             title: data.result,
@@ -64,55 +66,71 @@ export function ChangePassword() {
 
       function reject(data) {
         console.log(data);
+        Swal.fire({
+          title: "!Acceso denegado!",
+          text: "Revisar en la consola el ERROR",
+          confirmButtonColor: "#005DC9",
+          confirmButtonText: "Siguiente",
+          icon: "error",
+        });
       }
     }
+    setLoading(false);
   };
 
   return (
-    <div className={styles.contenedor}>
-      <h1>PORTAL DE SERVICIO</h1>
-      <input
-        id="user"
-        type="text"
-        placeholder="Usuario"
-        className={styles.input}
-        onChange={(e) => {
-          setUser(e.target.value.toUpperCase());
-          document.getElementById("user").value = e.target.value.toUpperCase();
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña Actual"
-        className={styles.input}
-        onChange={(e) => {
-          setPass(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Contraseña Nueva"
-        className={styles.input}
-        onChange={(e) => {
-          setNewPass(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="Repetir Contraseña"
-        className={styles.input}
-        onChange={(e) => {
-          setRepeatNewPass(e.target.value);
-        }}
-      />
-      <div className={styles.grupoBotones}>
-        <Link to="/">
-          <button className={styles.boton}>Volver</button>
-        </Link>
-        <button className={styles.boton} onClick={handleChangePassword}>
-          Cambiar Contraseña
-        </button>
+    <>
+      {loading ? (
+        <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
+      ) : (
+        ""
+      )}
+      <div className={styles.contenedor}>
+        <h1>PORTAL DE SERVICIO</h1>
+        <input
+          id="user"
+          type="text"
+          placeholder="Usuario"
+          className={styles.input}
+          onChange={(e) => {
+            setUser(e.target.value.toUpperCase());
+            document.getElementById("user").value =
+              e.target.value.toUpperCase();
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Contraseña Actual"
+          className={styles.input}
+          onChange={(e) => {
+            setPass(e.target.value);
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Contraseña Nueva"
+          className={styles.input}
+          onChange={(e) => {
+            setNewPass(e.target.value);
+          }}
+        />
+        <input
+          type="password"
+          placeholder="Repetir Contraseña"
+          className={styles.input}
+          onChange={(e) => {
+            setRepeatNewPass(e.target.value);
+          }}
+        />
+        <div className={styles.grupoBotones}>
+          <Link to="/">
+            <button className={styles.boton}>Volver</button>
+          </Link>
+          <button className={styles.boton} onClick={handleChangePassword}>
+            Cambiar Contraseña
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

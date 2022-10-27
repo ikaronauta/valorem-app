@@ -2,14 +2,16 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { unlockUserAuth } from "../../auth/unlockUserAuth";
+import { PulseLoader } from "react-spinners";
+
 import styles from "../../css/general.module.css";
 
 export function UnlockUser() {
   const [user, setUser] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleUnlockUser = () => {
-    console.log(user);
     if (user === "") {
       Swal.fire({
         title: "Datos Incompletos",
@@ -19,8 +21,8 @@ export function UnlockUser() {
         icon: "error",
       });
     } else {
-      const respuesta = unlockUserAuth(user);
-      respuesta.then(resolve, reject);
+      setLoading(true);
+      unlockUserAuth(user).then(resolve, reject);
 
       function resolve(data) {
         console.log(data);
@@ -48,31 +50,47 @@ export function UnlockUser() {
 
       function reject(data) {
         console.log(data);
+        Swal.fire({
+          title: "!Acceso denegado!",
+          text: "Revisar en la consola el ERROR",
+          confirmButtonColor: "#005DC9",
+          confirmButtonText: "Siguiente",
+          icon: "error",
+        });
       }
     }
+    setLoading(false);
   };
 
   return (
-    <div className={styles.contenedor}>
-      <h1>PORTAL DE SERVICIO</h1>
-      <input
-        id="user"
-        type="text"
-        placeholder="Usuario"
-        className={styles.input}
-        onChange={(e) => {
-          setUser(e.target.value.toUpperCase());
-          document.getElementById("user").value = e.target.value.toUpperCase();
-        }}
-      />
-      <div className={styles.grupoBotones}>
-        <Link to="/">
-          <button className={styles.boton}>Volver</button>
-        </Link>
-        <button className={styles.boton} onClick={handleUnlockUser}>
-          Desbloquear Usuario
-        </button>
+    <>
+      {loading ? (
+        <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
+      ) : (
+        ""
+      )}
+      <div className={styles.contenedor}>
+        <h1>PORTAL DE SERVICIO</h1>
+        <input
+          id="user"
+          type="text"
+          placeholder="Usuario"
+          className={styles.input}
+          onChange={(e) => {
+            setUser(e.target.value.toUpperCase());
+            document.getElementById("user").value =
+              e.target.value.toUpperCase();
+          }}
+        />
+        <div className={styles.grupoBotones}>
+          <Link to="/">
+            <button className={styles.boton}>Volver</button>
+          </Link>
+          <button className={styles.boton} onClick={handleUnlockUser}>
+            Desbloquear Usuario
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }

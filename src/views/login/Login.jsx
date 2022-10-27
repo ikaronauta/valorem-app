@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "../../css/general.module.css";
 import { loginAuth } from "../../auth/loginAuth";
 import Swal from "sweetalert2";
 import { useUserSetAuth } from "../../context/AuthProvider";
 import { PulseLoader } from "react-spinners";
+
+import styles from "../../css/general.module.css";
 
 export function Login() {
   const [user, setUser] = useState("");
