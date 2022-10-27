@@ -3,8 +3,8 @@ import { useUserContext } from "../context/AuthProvider";
 
 export function ProtectedRoute({ children }) {
   const usuarioAuth = useUserContext();
-  const usuarioLocalStorage = localStorage.getItem("VALOREM_APP");
+  const usuariosessionStorage = sessionStorage.getItem("VALOREM_APP");
 
-  if (usuarioAuth || usuarioLocalStorage) return children;
+  if (usuarioAuth || usuariosessionStorage) return children;
   else return <Navigate to="/" />;
 }

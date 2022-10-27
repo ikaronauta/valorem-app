@@ -32,7 +32,7 @@ export function LayoutHome() {
   const logOff = () => {
     navigate("/");
     cargarUsuario({});
-    localStorage.clear();
+    sessionStorage.clear();
   };
 
   return (
