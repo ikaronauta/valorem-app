@@ -47,6 +47,7 @@ export function Login() {
           cargarUsuario(data);
           sessionStorage.setItem("VALOREM_APP", data.USUARIO);
           navigate("/home");
+          setLoading(false);
 
           Swal.fire({
             title: `Bienvenido ${data.USUARIO}`,
@@ -57,6 +58,7 @@ export function Login() {
           });
         } else {
           navigate("/");
+          setLoading(false);
           Swal.fire({
             title: data.result,
             text: data.message,
@@ -69,6 +71,7 @@ export function Login() {
 
       function reject(data) {
         navigate("/");
+        setLoading(false);
         console.log(data);
         Swal.fire({
           title: "!Acceso denegado!",
@@ -79,7 +82,6 @@ export function Login() {
         });
       }
     }
-    setLoading(false);
   };
 
   return (
