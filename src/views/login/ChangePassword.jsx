@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { changePasswordAuth } from "../../auth/changePasswordAuth";
 import { PulseLoader } from "react-spinners";
+import { Icon } from "@ui5/webcomponents-react";
 
 import styles from "../../css/general.module.css";
 
@@ -14,6 +15,17 @@ export function ChangePassword() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleShowHiden = (e) => {
+    if (e.target.name === "show") {
+      e.target.name = "hide";
+      document.getElementById(e.target.previousElementSibling.id).type = "text";
+    } else {
+      e.target.name = "show";
+      document.getElementById(e.target.previousElementSibling.id).type =
+        "password";
+    }
+  };
 
   const handleChangePassword = () => {
     if (user === "" || pass === "" || newPass === "" || repeatNewPass === "") {
@@ -98,30 +110,60 @@ export function ChangePassword() {
               e.target.value.toUpperCase();
           }}
         />
-        <input
-          type="password"
-          placeholder="Contraseña Actual"
-          className={styles.input}
-          onChange={(e) => {
-            setPass(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Contraseña Nueva"
-          className={styles.input}
-          onChange={(e) => {
-            setNewPass(e.target.value);
-          }}
-        />
-        <input
-          type="password"
-          placeholder="Repetir Contraseña"
-          className={styles.input}
-          onChange={(e) => {
-            setRepeatNewPass(e.target.value);
-          }}
-        />
+        <div className={styles.containerPass}>
+          <input
+            id="password"
+            type="password"
+            placeholder="Contraseña Actual"
+            className={styles.inputPassword}
+            onChange={(e) => {
+              setPass(e.target.value);
+            }}
+          />
+          <Icon
+            className={styles.icon}
+            name="show"
+            onClick={(e) => {
+              handleShowHiden(e);
+            }}
+          />
+        </div>
+        <div className={styles.containerPass}>
+          <input
+            id="newPassword"
+            type="password"
+            placeholder="Contraseña Nueva"
+            className={styles.inputPassword}
+            onChange={(e) => {
+              setNewPass(e.target.value);
+            }}
+          />
+          <Icon
+            className={styles.icon}
+            name="show"
+            onClick={(e) => {
+              handleShowHiden(e);
+            }}
+          />
+        </div>
+        <div className={styles.containerPass}>
+          <input
+            id="repeatNewPassword"
+            type="password"
+            placeholder="Repetir Contraseña"
+            className={styles.inputPassword}
+            onChange={(e) => {
+              setRepeatNewPass(e.target.value);
+            }}
+          />
+          <Icon
+            className={styles.icon}
+            name="show"
+            onClick={(e) => {
+              handleShowHiden(e);
+            }}
+          />
+        </div>
         <div className={styles.grupoBotones}>
           <Link to="/">
             <button className={styles.boton}>Volver</button>
