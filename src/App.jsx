@@ -27,6 +27,7 @@ import //dataHome,
 "./assets/data/data.js";
 import { AuthProvider } from "./context/AuthProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { TitleProvider } from "./context/TitleProvider";
 
 <>
   {/* 
@@ -62,26 +63,27 @@ import {
 export function App() {
   return (
     <AuthProvider>
-      <Routes>
-        <Route path="/" element={<LayoutLogin />}>
-          <Route index element={<Login />} />
-          <Route path="change-password" element={<ChangePassword />} />
-          <Route path="unlock-user" element={<UnlockUser />} />
-        </Route>
+      <TitleProvider>
+        <Routes>
+          <Route path="/" element={<LayoutLogin />}>
+            <Route index element={<Login />} />
+            <Route path="change-password" element={<ChangePassword />} />
+            <Route path="unlock-user" element={<UnlockUser />} />
+          </Route>
 
-        <Route
-          path="/home"
-          element={
-            <ProtectedRoute>
-              <LayoutHome />
-            </ProtectedRoute>
-          }
-        >
-          <Route index element={<VistaGrid endPoint={Urls.DATA_HOME} />} />
-        </Route>
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<VistaGrid endPoint={Urls.DATA_HOME} />} />
+          </Route>
 
-        <>
-          {/* <Route
+          <>
+            {/* <Route
         path="/procesos-de-consolidacion-de-estados-financieros"
         
         element={<LayoutHome />}
@@ -183,9 +185,10 @@ export function App() {
       </Route>
 
        */}
-        </>
-        <Route path="*" element={<Navigate replace to="/home" />} />
-      </Routes>
+          </>
+          <Route path="*" element={<Navigate replace to="/home" />} />
+        </Routes>
+      </TitleProvider>
     </AuthProvider>
   );
 }
