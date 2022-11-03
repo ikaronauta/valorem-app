@@ -1,11 +1,3 @@
-//CPEDRAZA
-//BPMCO_PORTAL
-//BPMCOInicio12345678.
-
-//EndPints
-//Login: https://valoremanalitica.bpmco.co/login?user=${user}&pass=${pass}
-//DataHome: https://valoremanalitica.bpmco.co/roles?user=${user}
-
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
@@ -28,9 +20,10 @@ import //dataHome,
 import { AuthProvider } from "./context/AuthProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { TitleProvider } from "./context/TitleProvider";
+import { ResetPass } from "./views/login/ResetPass";
 
 <>
-  {/* 
+  {/*
 
 import {
   administracion,
@@ -69,6 +62,7 @@ export function App() {
             <Route index element={<Login />} />
             <Route path="change-password" element={<ChangePassword />} />
             <Route path="unlock-user" element={<UnlockUser />} />
+            <Route path="reset-pass" element={<ResetPass />} />
           </Route>
 
           <Route

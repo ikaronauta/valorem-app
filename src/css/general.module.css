@@ -3,13 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 400px;
+  width: 550px;
   height: 400px;
   position: relative;
 }
 
 .input {
-  width: 80%;
+  width: 60%;
   padding: 0.7rem 1.5rem;
   margin: 0.8rem;
   border: none;
@@ -19,9 +19,28 @@
 }
 
 .containerPass {
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.groupRadios {
+  display: flex;
+  margin: 0.3rem;
+}
+
+.radio {
+  margin: 0 0.5rem;
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.containerRadio {
+  height: 100%;
+  padding: 0.6rem;
+  margin: 0 1rem;
+  display: flex;
   align-items: center;
 }
 
@@ -59,10 +78,18 @@
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 0 0.1rem;
+  font-size: 0.7rem;
 }
 
 .boton:hover {
   background-color: var(--btn-main-hover);
+}
+
+.politicasPass {
+  margin-top: 1rem;
+  color: red;
+  font-weight: bold;
+  text-align: center;
 }
 
 .outlet {

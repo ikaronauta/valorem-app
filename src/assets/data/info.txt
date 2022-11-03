@@ -1,0 +1,25 @@
+https://valorem-s-a-s--valores-bavaria-valorem-valorem-prd-valo1defc702.cfapps.us10.hana.ondemand.com/valoremappValoremAppHTML/index.html
+
+CPEDRAZA
+cpedraza@valorem.com.co
+Cpedraza.13.Pruebas.
+
+tenatn = D1
+
+//BPMCO_PORTAL
+//BPMCOInicio12345678.
+
+
+***** EndPoints
+Login: https://valoremanalitica.bpmco.co/login?user=${user}&pass=${pass}
+unlock: https://valoremanalitica.bpmco.co/unlock?user=${user}&mail=${email}&tenant=${tenant}
+ChangePass: https://valoremanalitica.bpmco.co/changePass?user=${user}&pass=${pass}&newPass=${newPass}&tenant={tenant}
+ResetPass: https://valoremanalitica.bpmco.co/resetPass?user=${user}&pass={pass}&tenant={tenant}
+
+DataHome: https://valoremanalitica.bpmco.co/roles?user=${user}
+
+cpedraza@valorem.com.co
+
+Login: https://valoremanalitica.bpmco.co/login?user=BPMCO_PORTAL&pass=BPMCOInicio12345678.
+unlock: https://valoremanalitica.bpmco.co/unlock?user=CPEDRAZA&mail=cpedraza@valorem.com.co.co&tenant=
+ResetPass: https://valoremanalitica.bpmco.co/resetPass?user=CPEDRAZA&pass=cpedraza@valorem.com.co&tenant=

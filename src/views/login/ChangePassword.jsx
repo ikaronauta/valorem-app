@@ -13,22 +13,29 @@ export function ChangePassword() {
   const [newPass, setNewPass] = useState("");
   const [repeatNewPass, setRepeatNewPass] = useState("");
   const [loading, setLoading] = useState(false);
+  const [tenant, setTenant] = useState(null);
 
   const navigate = useNavigate();
 
   const handleShowHiden = (e) => {
-    if (e.target.name === "show") {
-      e.target.name = "hide";
+    if (e.target.name === "hide") {
+      e.target.name = "show";
       document.getElementById(e.target.previousElementSibling.id).type = "text";
     } else {
-      e.target.name = "show";
+      e.target.name = "hide";
       document.getElementById(e.target.previousElementSibling.id).type =
         "password";
     }
   };
 
   const handleChangePassword = () => {
-    if (user === "" || pass === "" || newPass === "" || repeatNewPass === "") {
+    if (
+      user === "" ||
+      pass === "" ||
+      newPass === "" ||
+      repeatNewPass === "" ||
+      tenant === null
+    ) {
       Swal.fire({
         title: "Datos Incompletos",
         text: "¡Debe ingresar toda la información para poder continuar!",
@@ -53,7 +60,7 @@ export function ChangePassword() {
       });
     } else {
       setLoading(true);
-      changePasswordAuth(user, pass, newPass).then(resolve, reject);
+      changePasswordAuth(user, pass, newPass, tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {
@@ -79,10 +86,10 @@ export function ChangePassword() {
       function reject(data) {
         console.log(data);
         Swal.fire({
-          title: "!Acceso denegado!",
-          text: "Revisar en la consola el ERROR",
+          title: data.code,
+          text: data.message,
           confirmButtonColor: "#005DC9",
-          confirmButtonText: "Siguiente",
+          confirmButtonText: "Cerrar",
           icon: "error",
         });
       }
@@ -99,6 +106,34 @@ export function ChangePassword() {
       )}
       <div className={styles.contenedor}>
         <h1>PORTAL DE SERVICIO</h1>
+        <div className={styles.groupRadios}>
+          <div className={styles.containerRadio}>
+            <input
+              className={styles.radio}
+              id="r1"
+              type="radio"
+              name="opciones"
+              value=""
+              onChange={(e) => {
+                setTenant(e.target.value);
+              }}
+            />
+            <label htmlFor="r1">TENANT VALOREM</label>
+          </div>
+          <div className={styles.containerRadio}>
+            <input
+              className={styles.radio}
+              id="r2"
+              type="radio"
+              name="opciones"
+              value="D1"
+              onChange={(e) => {
+                setTenant(e.target.value);
+              }}
+            />
+            <label htmlFor="r2">TENANT KOBA</label>
+          </div>
+        </div>
         <input
           id="user"
           type="text"
@@ -122,7 +157,7 @@ export function ChangePassword() {
           />
           <Icon
             className={styles.icon}
-            name="show"
+            name="hide"
             onClick={(e) => {
               handleShowHiden(e);
             }}
@@ -140,7 +175,7 @@ export function ChangePassword() {
           />
           <Icon
             className={styles.icon}
-            name="show"
+            name="hide"
             onClick={(e) => {
               handleShowHiden(e);
             }}
@@ -158,7 +193,7 @@ export function ChangePassword() {
           />
           <Icon
             className={styles.icon}
-            name="show"
+            name="hide"
             onClick={(e) => {
               handleShowHiden(e);
             }}
@@ -172,6 +207,10 @@ export function ChangePassword() {
             Cambiar Contraseña
           </button>
         </div>
+        <p className={styles.politicasPass}>
+          Políticas de Clave: Utilizar únicamente letras y números (una
+          mayúscula y una minúscula) y que no coincida con las últimas 5 claves!
+        </p>
       </div>
     </>
   );

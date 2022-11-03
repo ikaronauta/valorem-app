@@ -1,20 +1,19 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { unlockUserAuth } from "../../auth/unlockUserAuth";
 import { PulseLoader } from "react-spinners";
 
 import styles from "../../css/general.module.css";
+import { resetPassAuth } from "../../auth/resetPassAuth";
 
-export function UnlockUser() {
+export function ResetPass() {
   const [user, setUser] = useState("");
-  const [email, setEmail] = useState("");
   const [tenant, setTenant] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleUnlockUser = () => {
-    if (user === "" || email === "" || tenant === null) {
+    if (user === "" || tenant === null) {
       Swal.fire({
         title: "Datos Incompletos",
         text: "¡Debe ingresar toda la información para poder continuar!",
@@ -24,18 +23,20 @@ export function UnlockUser() {
       });
     } else {
       setLoading(true);
-      unlockUserAuth(user, email, tenant).then(resolve, reject);
+      resetPassAuth(user, tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {
           Swal.fire({
-            title: data.result,
-            text: data.message,
+            title: data.message.substring(0, 42),
+            html: `<p>Nueva contraseña: <b style='color:red'>${data.message.substring(
+              50
+            )}</b></p></br><p>La nueva contraseña es temporal y no le sirve para iniciar sesión, primo debe cambiarla.</p>`,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
             icon: "success",
           });
-          navigate("/");
+          navigate("/change-password");
         } else {
           Swal.fire({
             title: data.result,
@@ -109,21 +110,12 @@ export function UnlockUser() {
               e.target.value.toUpperCase();
           }}
         />
-        <input
-          id="email"
-          type="email"
-          placeholder="Email"
-          className={styles.input}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
         <div className={styles.grupoBotones}>
           <Link to="/">
             <button className={styles.boton}>Volver</button>
           </Link>
           <button className={styles.boton} onClick={handleUnlockUser}>
-            Desbloquear Usuario
+            Resetear Contraseña
           </button>
         </div>
       </div>

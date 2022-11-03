@@ -12,16 +12,16 @@ export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
-  const [showHiden, setShowHiden] = useState("show");
+  const [showHiden, setShowHiden] = useState("hide");
   const cargarUsuario = useUserSetAuth();
   const navigate = useNavigate();
 
   const handleShowHiden = () => {
-    if (showHiden === "show") {
-      setShowHiden("hide");
+    if (showHiden === "hide") {
+      setShowHiden("show");
       document.getElementById("password").type = "text";
     } else {
-      setShowHiden("show");
+      setShowHiden("hide");
       document.getElementById("password").type = "password";
     }
   };
@@ -74,10 +74,10 @@ export function Login() {
         setLoading(false);
         console.log(data);
         Swal.fire({
-          title: "!Acceso denegado!",
-          text: "Revisar en la consola el ERROR",
+          title: data.code,
+          text: data.message,
           confirmButtonColor: "#005DC9",
-          confirmButtonText: "Siguiente",
+          confirmButtonText: "Cerrar",
           icon: "error",
         });
       }
@@ -134,6 +134,9 @@ export function Login() {
           </Link>
           <Link to="/unlock-user">
             <button className={styles.boton}>Desbloquear Usuario</button>
+          </Link>
+          <Link to="/reset-pass">
+            <button className={styles.boton}>Resetear Contraseña</button>
           </Link>
         </div>
       </div>
