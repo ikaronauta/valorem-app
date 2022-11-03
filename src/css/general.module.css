@@ -119,4 +119,13 @@
   .boton {
     font-size: 0.6rem;
   }
+
+  .input,
+  .containerPass {
+    width: 90%;
+  }
+
+  .boton {
+    font-size: 0.5rem;
+  }
 }
