@@ -140,7 +140,7 @@ export function ChangePassword() {
           placeholder="Usuario"
           className={styles.input}
           onChange={(e) => {
-            setUser(e.target.value.toUpperCase());
+            setUser(e.target.value.toUpperCase().trim());
             document.getElementById("user").value =
               e.target.value.toUpperCase();
           }}
@@ -152,7 +152,7 @@ export function ChangePassword() {
             placeholder="Contraseña Actual"
             className={styles.inputPassword}
             onChange={(e) => {
-              setPass(e.target.value);
+              setPass(e.target.value.trim());
             }}
           />
           <Icon
@@ -170,7 +170,7 @@ export function ChangePassword() {
             placeholder="Contraseña Nueva"
             className={styles.inputPassword}
             onChange={(e) => {
-              setNewPass(e.target.value);
+              setNewPass(e.target.value.trim());
             }}
           />
           <Icon
@@ -188,7 +188,7 @@ export function ChangePassword() {
             placeholder="Repetir Contraseña"
             className={styles.inputPassword}
             onChange={(e) => {
-              setRepeatNewPass(e.target.value);
+              setRepeatNewPass(e.target.value.trim());
             }}
           />
           <Icon

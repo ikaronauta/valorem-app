@@ -24,7 +24,7 @@ export function UnlockUser() {
       });
     } else {
       setLoading(true);
-      unlockUserAuth(user, email, tenant).then(resolve, reject);
+      unlockUserAuth(user.trim(), email.trim(), tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {

@@ -99,7 +99,7 @@ export function Login() {
           placeholder="Usuario"
           className={styles.input}
           onChange={(e) => {
-            setUser(e.target.value.toUpperCase());
+            setUser(e.target.value.toUpperCase().trim());
             document.getElementById("user").value =
               e.target.value.toUpperCase();
           }}
@@ -111,7 +111,7 @@ export function Login() {
             placeholder="Contraseña"
             className={styles.inputPassword}
             onChange={(e) => {
-              setPass(e.target.value);
+              setPass(e.target.value.trim());
             }}
           />
           <Icon

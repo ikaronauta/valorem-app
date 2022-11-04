@@ -105,7 +105,7 @@ export function ResetPass() {
           placeholder="Usuario"
           className={styles.input}
           onChange={(e) => {
-            setUser(e.target.value.toUpperCase());
+            setUser(e.target.value.toUpperCase().trim());
             document.getElementById("user").value =
               e.target.value.toUpperCase();
           }}
