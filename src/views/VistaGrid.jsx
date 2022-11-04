@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PulseLoader } from "react-spinners";
-import { getData } from "../auth/getData";
+import { getDataService } from "../services/getDataService";
 import { Grid } from "../components/Grid";
 
 //Importación Estilos
@@ -13,7 +13,7 @@ export function VistaGrid({ endPoint }) {
   useEffect(() => {
     setloaDing(true);
 
-    getData(endPoint).then((data) => {
+    getDataService(endPoint).then((data) => {
       setDatos(data);
       setloaDing(false);
       setTimeout(() => {}, 5000);

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { PulseLoader } from "react-spinners";
 
 import styles from "../../css/general.module.css";
-import { resetPassAuth } from "../../auth/resetPassAuth";
+import { resetPassService } from "../../services/resetPassService";
 
 export function ResetPass() {
   const [user, setUser] = useState("");
@@ -23,7 +23,7 @@ export function ResetPass() {
       });
     } else {
       setLoading(true);
-      resetPassAuth(user, tenant).then(resolve, reject);
+      resetPassService(user, tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {

@@ -1,8 +1,9 @@
 import axios from "axios";
+import { BASE_URL, END_POINTS } from "./connections";
 
-export const loginAuth = async (user, pass) => {
+export const loginService = async (user, pass) => {
   let passEncode = encodeURIComponent(pass);
-  const url = `https://valoremanalitica.bpmco.co/login?user=${user}&pass=${passEncode}`;
+  const url = `${BASE_URL}${END_POINTS.login}?user=${user}&pass=${passEncode}`;
   const result = await axios.get(url);
   const response = JSON.parse(result.data.slice(1, -1));
 

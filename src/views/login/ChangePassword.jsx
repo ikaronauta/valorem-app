@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { changePasswordAuth } from "../../auth/changePasswordAuth";
+import { changePasswordService } from "../../services/changePasswordService";
 import { PulseLoader } from "react-spinners";
 import { Icon } from "@ui5/webcomponents-react";
 
@@ -60,7 +60,7 @@ export function ChangePassword() {
       });
     } else {
       setLoading(true);
-      changePasswordAuth(user, pass, newPass, tenant).then(resolve, reject);
+      changePasswordService(user, pass, newPass, tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {

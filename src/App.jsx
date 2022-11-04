@@ -9,7 +9,7 @@ import { LayoutHome } from "./views/layouts/LayoutHome";
 import { VistaGrid } from "./views/VistaGrid";
 //import { VistaInterna } from "./views/VistaInterna";
 
-import { Urls } from "./context/Urls";
+import { END_POINTS } from "./services/connections";
 
 import //dataHome,
 // dataVista1,
@@ -73,13 +73,13 @@ export function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<VistaGrid endPoint={Urls.DATA_HOME} />} />
+            <Route index element={<VistaGrid endPoint={END_POINTS.roles} />} />
           </Route>
 
           <>
             {/* <Route
         path="/procesos-de-consolidacion-de-estados-financieros"
-        
+
         element={<LayoutHome />}
       >
         <Route index element={<VistaGrid datos={dataVista1} />} />

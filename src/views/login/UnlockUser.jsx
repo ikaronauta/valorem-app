@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { unlockUserAuth } from "../../auth/unlockUserAuth";
+import { unlockUserService } from "../../services/unlockUserService";
 import { PulseLoader } from "react-spinners";
 
 import styles from "../../css/general.module.css";
@@ -24,7 +24,7 @@ export function UnlockUser() {
       });
     } else {
       setLoading(true);
-      unlockUserAuth(user.trim(), email.trim(), tenant).then(resolve, reject);
+      unlockUserService(user, email, tenant).then(resolve, reject);
 
       function resolve(data) {
         if (data.result === "OK") {
@@ -104,7 +104,7 @@ export function UnlockUser() {
           placeholder="Usuario"
           className={styles.input}
           onChange={(e) => {
-            setUser(e.target.value.toUpperCase());
+            setUser(e.target.value.toUpperCase().trim());
             document.getElementById("user").value =
               e.target.value.toUpperCase();
           }}
@@ -115,7 +115,7 @@ export function UnlockUser() {
           placeholder="Email"
           className={styles.input}
           onChange={(e) => {
-            setEmail(e.target.value);
+            setEmail(e.target.value.trim());
           }}
         />
         <div className={styles.grupoBotones}>

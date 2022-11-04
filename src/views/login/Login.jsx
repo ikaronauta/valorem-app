@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { loginAuth } from "../../auth/loginAuth";
+import { loginService } from "../../services/loginService";
 import Swal from "sweetalert2";
 import { useUserSetAuth } from "../../context/AuthProvider";
 import { PulseLoader } from "react-spinners";
@@ -37,7 +37,7 @@ export function Login() {
       });
     } else {
       setLoading(true);
-      loginAuth(user, pass).then(resolve, reject);
+      loginService(user, pass).then(resolve, reject);
 
       function resolve(data) {
         if (data.ID_ESTADO === "05") {
