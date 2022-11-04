@@ -1,57 +1,28 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
+// ** Layouts
 import { LayoutLogin } from "./views/layouts/LayoutLogin";
-import { ChangePassword } from "./views/login/ChangePassword";
-import { Login } from "./views/login/Login";
-import { UnlockUser } from "./views/login/UnlockUser";
-
 import { LayoutHome } from "./views/layouts/LayoutHome";
+
+// ** Vistas Login
+import { Login } from "./views/login/Login";
+import { ChangePassword } from "./views/login/ChangePassword";
+import { UnlockUser } from "./views/login/UnlockUser";
+import { ResetPass } from "./views/login/ResetPass";
+
+// ** Vistas
 import { VistaGrid } from "./views/VistaGrid";
 //import { VistaInterna } from "./views/VistaInterna";
 
-import { END_POINTS } from "./services/connections";
-
-import //dataHome,
-// dataVista1,
-// dataVista3,
-// dataVista4,
-// dataVista8,
-"./assets/data/data.js";
+// ** Providers
 import { AuthProvider } from "./context/AuthProvider";
-import { ProtectedRoute } from "./components/ProtectedRoute";
 import { TitleProvider } from "./context/TitleProvider";
-import { ResetPass } from "./views/login/ResetPass";
 
-<>
-  {/*
+// ** Otros
+import { END_POINTS } from "./services/connections";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
-import {
-  administracion,
-  cargaDeDatos,
-  conciliacion,
-  consolidacion,
-  reportes,
-} from "./assets/data/dataInternosVista1";
-import { notasConsolidacion } from "./assets/data/dataInternosVista2.js";
-import {
-  estadosFinancieros,
-  notasEstadosFinancieros,
-} from "./assets/data/dataInternosVista3.js";
-import {
-  cargueInicial,
-  generacionDeInformeDeJunta,
-  comentariosPorArea,
-  comentariosGenerales,
-  redondeoDeCifras,
-  parametrizacion,
-} from "./assets/data/dataInternosVista4.js";
-import { otrosInformesValorem } from "./assets/data/dataInternosVista5.js";
-import {
-  generalDetallePorConcepto,
-  indicadoresFinancieros,
-  generarVersionFinal,
-} from "./assets/data/dataInternosVista8.js"; */}
-</>;
+import { Prueba } from "./components/Prueba";
 
 export function App() {
   return (
@@ -73,113 +44,37 @@ export function App() {
               </ProtectedRoute>
             }
           >
-            <Route index element={<VistaGrid endPoint={END_POINTS.roles} />} />
+            <Route
+              index
+              element={<VistaGrid title={null} endPoint={END_POINTS.roles} />}
+            />
           </Route>
 
-          <>
-            {/* <Route
-        path="/procesos-de-consolidacion-de-estados-financieros"
+          <Route
+            path="/informe-de-junta"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<Prueba title="Informe de Junta" />} />
+          </Route>
 
-        element={<LayoutHome />}
-      >
-        <Route index element={<VistaGrid datos={dataVista1} />} />
-        <Route
-          path="administracion"
-          element={<VistaInterna datos={administracion} />}
-        />
+          <Route
+            path="/Otros Informes Refocosta"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
+            <Route
+              index
+              element={<Prueba title="Otros Informes Refocosta" />}
+            />
+          </Route>
 
-        <Route
-          path="carga-datos"
-          element={<VistaInterna datos={cargaDeDatos} />}
-        />
-
-        <Route
-          path="conciliacion"
-          element={<VistaInterna datos={conciliacion} />}
-        />
-        <Route
-          path="consolidacion"
-          element={<VistaInterna datos={consolidacion} />}
-        />
-        <Route path="reportes" element={<VistaInterna datos={reportes} />} />
-      </Route>
-
-      <Route path="/elaboracion-de-notas-consolidas" element={<LayoutHome />}>
-        <Route
-          path="/elaboracion-de-notas-consolidas"
-          element={<VistaInterna datos={notasConsolidacion} />}
-        />
-      </Route>
-
-      <Route
-        path="/reportes-financieros-y-otros-reportes"
-        element={<LayoutHome />}
-      >
-        <Route index element={<VistaGrid datos={dataVista3} />} />
-        <Route
-          path="estados-financieros"
-          element={<VistaInterna datos={estadosFinancieros} />}
-        />
-
-        <Route
-          path="notas-a-los-estados-financieros"
-          element={<VistaInterna datos={notasEstadosFinancieros} />}
-        ></Route>
-      </Route>
-
-      <Route path="/informe-de-junta" element={<LayoutHome />}>
-        <Route index element={<VistaGrid datos={dataVista4} />} />
-        <Route
-          path="cargue-inicial"
-          element={<VistaInterna datos={cargueInicial} />}
-        />
-        <Route
-          path="generacion-de-informe-de-junta"
-          element={<VistaInterna datos={generacionDeInformeDeJunta} />}
-        ></Route>
-        <Route
-          path="comentarios-por-area"
-          element={<VistaInterna datos={comentariosPorArea} />}
-        />
-        <Route
-          path="comentarios-generales"
-          element={<VistaInterna datos={comentariosGenerales} />}
-        />
-        <Route
-          path="redondeo-de-cifras"
-          element={<VistaInterna datos={redondeoDeCifras} />}
-        />
-        <Route
-          path="parametrizacion"
-          element={<VistaInterna datos={parametrizacion} />}
-        />
-      </Route>
-
-      <Route path="/otros-informes-valorem" element={<LayoutHome />}>
-        <Route
-          path="/otros-informes-valorem"
-          element={<VistaInterna datos={otrosInformesValorem} />}
-        />
-      </Route>
-
-      <Route path="/informe-de-junta-caracol-tv" element={<LayoutHome />}>
-        <Route index element={<VistaGrid datos={dataVista8} />} />
-        <Route
-          path="generar-detalle-por-concepto"
-          element={<VistaInterna datos={generalDetallePorConcepto} />}
-        />
-        <Route
-          path="indicadores-financieros"
-          element={<VistaInterna datos={indicadoresFinancieros} />}
-        />
-        <Route
-          path="generar-version-final"
-          element={<VistaInterna datos={generarVersionFinal} />}
-        />
-      </Route>
-
-       */}
-          </>
           <Route path="*" element={<Navigate replace to="/home" />} />
         </Routes>
       </TitleProvider>

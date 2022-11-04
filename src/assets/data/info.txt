@@ -2,7 +2,7 @@ https://valorem-s-a-s--valores-bavaria-valorem-valorem-prd-valo1defc702.cfapps.u
 
 CPEDRAZA
 cpedraza@valorem.com.co
-Hana.20221141059
+Cepdraza+3+Pruebas
 
 tenatn = D1
 
@@ -18,7 +18,7 @@ ResetPass: https://valoremanalitica.bpmco.co/resetPass?user=${user}&pass={pass}&
 
 DataHome: https://valoremanalitica.bpmco.co/roles?user=${user}
 
-cpedraza@valorem.com.co
+
 
 Login: https://valoremanalitica.bpmco.co/login?user=BPMCO_PORTAL&pass=BPMCOInicio12345678.
 unlock: https://valoremanalitica.bpmco.co/unlock?user=CPEDRAZA&mail=cpedraza@valorem.com.co.co&tenant=

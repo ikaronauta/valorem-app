@@ -1,100 +1,106 @@
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useUserSetAuth } from "../context/AuthProvider";
-import { LoginAuth } from "./LoginAuth";
+<Route
+path="/procesos-de-consolidacion-de-estados-financieros"
 
-export function IniciarSesion(user, pass) {
-  debugger;
-  const cargarUsuario = useUserSetAuth();
-  const navigate = useNavigate();
+element={<LayoutHome />}
+>
+<Route index element={<VistaGrid datos={dataVista1} />} />
+<Route
+path="administracion"
+element={<VistaInterna datos={administracion} />}
+/>
 
-  const promesa = LoginAuth(user, pass);
-  promesa.then(resolve, reject);
+<>
+  {/* 
 
-  function resolve(data) {
-    if (data.ID_ESTADO === "05") {
-      let fechaVencimiento = new Date(
-        data.FECHA_VENCIMIENTO
-      ).toLocaleDateString();
-      cargarUsuario(data);
-      navigate("/home");
+<Route
+path="carga-datos"
+element={<VistaInterna datos={cargaDeDatos} />}
+/>
 
-      Swal.fire({
-        title: `Bienvenido ${data.USUARIO}`,
-        text: `Fecha vencimiento clave: ${fechaVencimiento}`,
-        confirmButtonColor: "#005DC9",
-        confirmButtonText: "Siguiente",
-        icon: "success",
-      });
-    } else {
-      navigate("/");
-      Swal.fire({
-        text: "¡Datos incorrectos!",
-        confirmButtonColor: "#005DC9",
-        confirmButtonText: "Siguiente",
-        icon: "error",
-      });
-    }
-  }
+<Route
+path="conciliacion"
+element={<VistaInterna datos={conciliacion} />}
+/>
+<Route
+path="consolidacion"
+element={<VistaInterna datos={consolidacion} />}
+/>
+<Route path="reportes" element={<VistaInterna datos={reportes} />} />
+</Route>
 
-  function reject(data) {
-    navigate("/");
-    Swal.fire({
-      title: "!Acceso denegado!",
-      text: data.message + " - " + data.code,
-      confirmButtonColor: "#005DC9",
-      confirmButtonText: "Siguiente",
-      icon: "error",
-    });
-  }
-}
+<Route path="/elaboracion-de-notas-consolidas" element={<LayoutHome />}>
+<Route
+path="/elaboracion-de-notas-consolidas"
+element={<VistaInterna datos={notasConsolidacion} />}
+/>
+</Route>
 
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import Swal from "sweetalert2";
-import { useUserSetAuth } from "../context/AuthProvider";
+<Route
+path="/reportes-financieros-y-otros-reportes"
+element={<LayoutHome />}
+>
+<Route index element={<VistaGrid datos={dataVista3} />} />
+<Route
+path="estados-financieros"
+element={<VistaInterna datos={estadosFinancieros} />}
+/>
 
-export const LoginAuth = async (user, pass) => {
-  const cargarUsuario = useUserSetAuth();
+<Route
+path="notas-a-los-estados-financieros"
+element={<VistaInterna datos={notasEstadosFinancieros} />}
+></Route>
+</Route>
 
-  const navigate = useNavigate();
+<Route path="/informe-de-junta" element={<LayoutHome />}>
+<Route index element={<VistaGrid datos={dataVista4} />} />
+<Route
+path="cargue-inicial"
+element={<VistaInterna datos={cargueInicial} />}
+/>
+<Route
+path="generacion-de-informe-de-junta"
+element={<VistaInterna datos={generacionDeInformeDeJunta} />}
+></Route>
+<Route
+path="comentarios-por-area"
+element={<VistaInterna datos={comentariosPorArea} />}
+/>
+<Route
+path="comentarios-generales"
+element={<VistaInterna datos={comentariosGenerales} />}
+/>
+<Route
+path="redondeo-de-cifras"
+element={<VistaInterna datos={redondeoDeCifras} />}
+/>
+<Route
+path="parametrizacion"
+element={<VistaInterna datos={parametrizacion} />}
+/>
+</Route>
 
-  const url = `https://valoremanalitica.bpmco.co/login?user=${user}&pass=${pass}`;
-  const result = await axios.get(url);
-  const response = JSON.parse(result.data.slice(1, -1));
+<Route path="/otros-informes-valorem" element={<LayoutHome />}>
+<Route
+path="/otros-informes-valorem"
+element={<VistaInterna datos={otrosInformesValorem} />}
+/>
+</Route>
 
-  cargarUsuario(response);
+<Route path="/informe-de-junta-caracol-tv" element={<LayoutHome />}>
+<Route index element={<VistaGrid datos={dataVista8} />} />
+<Route
+path="generar-detalle-por-concepto"
+element={<VistaInterna datos={generalDetallePorConcepto} />}
+/>
+<Route
+path="indicadores-financieros"
+element={<VistaInterna datos={indicadoresFinancieros} />}
+/>
+<Route
+path="generar-version-final"
+element={<VistaInterna datos={generarVersionFinal} />}
+/>
+</Route>
 
-  let fechaVencimiento;
-
-  if (user === "" || pass === "") {
-    Swal.fire({
-      text: "¡Debe ingresar toda la información para poder continuar!",
-      confirmButtonColor: "#005DC9",
-      confirmButtonText: "Siguiente",
-      icon: "error",
-    });
-  } else {
-    if (response.hasOwnProperty("ID_ESTADO")) {
-      fechaVencimiento = new Date(
-        response.FECHA_VENCIMIENTO
-      ).toLocaleDateString();
-      navigate("/home");
-      Swal.fire({
-        title: `Bienvenido ${response.USUARIO}`,
-        text: `Fecha vencimiento clave: ${fechaVencimiento}`,
-        confirmButtonColor: "#005DC9",
-        confirmButtonText: "Siguiente",
-        icon: "success",
-      });
-    } else {
-      navigate("/");
-      Swal.fire({
-        text: "¡Datos incorrectos!",
-        confirmButtonColor: "#005DC9",
-        confirmButtonText: "Siguiente",
-        icon: "error",
-      });
-    }
-  }
-};
+*/}
+</>;

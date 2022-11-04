@@ -5,10 +5,14 @@ import { Grid } from "../components/Grid";
 
 //Importación Estilos
 import styles from "../css/general.module.css";
+import { useChangeTitleContext } from "../context/TitleProvider";
 
-export function VistaGrid({ endPoint }) {
+export function VistaGrid({ title, endPoint }) {
   const [datos, setDatos] = useState([]);
   const [loading, setloaDing] = useState(false);
+  const cambiarTitulo = useChangeTitleContext();
+
+  cambiarTitulo(title);
 
   useEffect(() => {
     setloaDing(true);
@@ -16,7 +20,6 @@ export function VistaGrid({ endPoint }) {
     getDataService(endPoint).then((data) => {
       setDatos(data);
       setloaDing(false);
-      setTimeout(() => {}, 5000);
     });
   }, [endPoint]);
 
