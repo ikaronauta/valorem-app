@@ -131,7 +131,7 @@ export function ChangePassword() {
                 setTenant(e.target.value);
               }}
             />
-            <label htmlFor="r2">TENANT KOBA</label>
+            <label htmlFor="r2">TENANT D1</label>
           </div>
         </div>
         <input

@@ -57,7 +57,7 @@ export function App() {
                 </ProtectedRoute>
               }
             >
-              <Route index element={<Prueba title="Informe de Junta" />} />
+              <Route index element={<VistaGrid title="Informe de Junta" />} />
             </Route>
 
             <Route
