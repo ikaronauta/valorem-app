@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { loginService } from "../../services/loginService";
 import Swal from "sweetalert2";
-import { useUserSetAuth } from "../../context/AuthProvider";
 import { PulseLoader } from "react-spinners";
 import { Icon } from "@ui5/webcomponents-react";
 
@@ -10,15 +9,12 @@ import { END_POINTS } from "../../services/connections";
 
 import styles from "../../css/general.module.css";
 import { getDataService } from "../../services/getDataService";
-import { useDataSetContext } from "../../context/DataProvider";
 
 export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
   const [showHiden, setShowHiden] = useState("hide");
-  const cargarUsuario = useUserSetAuth();
-  const loadData = useDataSetContext();
   const navigate = useNavigate();
 
   const handleShowHiden = () => {
@@ -47,12 +43,12 @@ export function Login() {
       function resolve(data) {
         //Solo los usuarios con estado "05" se pueden logear
         if (data.ID_ESTADO === "05") {
-          cargarUsuario(data); // Se guarda la información del usuario en el userContext
           sessionStorage.setItem("VALOREM_APP", data.USUARIO); //Se guarda el nombre de usuario en Sesion Storage
 
           getDataService(END_POINTS.roles)
+            .then()
             .then((data) => {
-              loadData(data);
+              sessionStorage.setItem("DATA_HOME", JSON.stringify(data)); //Se guardan los datos para cargar las tarjetas del Home
             })
             .catch((error) => console.log(error));
 
