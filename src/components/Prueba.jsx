@@ -1,9 +1,7 @@
-import { useChangeTitleContext } from "../context/TitleProvider";
+import { useDataContext } from "../context/DataProvider";
 
-export function Prueba({ title }) {
-  const cambiarTitulo = useChangeTitleContext();
-
-  cambiarTitulo(title);
-
-  return;
+export function Prueba() {
+  const datos = useDataContext();
+  console.log(datos);
+  return <h2>OKKKK</h2>;
 }

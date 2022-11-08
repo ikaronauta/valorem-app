@@ -115,7 +115,7 @@ export function ResetPass() {
             <button className={styles.boton}>Volver</button>
           </Link>
           <button className={styles.boton} onClick={handleUnlockUser}>
-            Resetear Contraseña
+            Reestablecer contraseña
           </button>
         </div>
       </div>

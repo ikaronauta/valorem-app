@@ -6,7 +6,11 @@ import { useUserSetAuth } from "../../context/AuthProvider";
 import { PulseLoader } from "react-spinners";
 import { Icon } from "@ui5/webcomponents-react";
 
+import { END_POINTS } from "../../services/connections";
+
 import styles from "../../css/general.module.css";
+import { getDataService } from "../../services/getDataService";
+import { useDataSetContext } from "../../context/DataProvider";
 
 export function Login() {
   const [user, setUser] = useState("");
@@ -14,6 +18,7 @@ export function Login() {
   const [loading, setLoading] = useState(false);
   const [showHiden, setShowHiden] = useState("hide");
   const cargarUsuario = useUserSetAuth();
+  const loadData = useDataSetContext();
   const navigate = useNavigate();
 
   const handleShowHiden = () => {
@@ -36,19 +41,29 @@ export function Login() {
         icon: "error",
       });
     } else {
-      setLoading(true);
-      loginService(user, pass).then(resolve, reject);
+      setLoading(true); //Se carga con TRUE para que se muestre el sppiner
+      loginService(user, pass).then(resolve, reject); //Login
 
       function resolve(data) {
+        //Solo los usuarios con estado "05" se pueden logear
         if (data.ID_ESTADO === "05") {
+          cargarUsuario(data); // Se guarda la información del usuario en el userContext
+          sessionStorage.setItem("VALOREM_APP", data.USUARIO); //Se guarda el nombre de usuario en Sesion Storage
+
+          getDataService(END_POINTS.roles)
+            .then((data) => {
+              loadData(data);
+            })
+            .catch((error) => console.log(error));
+
           let fechaVencimiento = new Date(
             data.FECHA_VENCIMIENTO
           ).toLocaleDateString();
-          cargarUsuario(data);
-          sessionStorage.setItem("VALOREM_APP", data.USUARIO);
-          navigate("/home");
-          setLoading(false);
 
+          navigate("/home");
+          setLoading(false); //Se carga con FALSE para que se deje de mostrar el sppiner
+
+          //Se muestra alerta con información del usuario logeado
           Swal.fire({
             title: `Bienvenido ${data.USUARIO}`,
             text: `Fecha vencimiento clave: ${fechaVencimiento}`,
@@ -58,7 +73,9 @@ export function Login() {
           });
         } else {
           navigate("/");
-          setLoading(false);
+          setLoading(false); //Se carga con FALSE para que se deje de muestre el sppiner
+
+          //Se muestra alerta con el error que devolvio la API
           Swal.fire({
             title: data.result,
             text: data.message,
@@ -71,8 +88,10 @@ export function Login() {
 
       function reject(data) {
         navigate("/");
-        setLoading(false);
+        setLoading(false); //Se carga con FALSE para que se deje de muestre el sppiner
         console.log(data);
+
+        //Se muestra alerta con el error que devolvio la API
         Swal.fire({
           title: data.code,
           text: data.message,
@@ -136,7 +155,7 @@ export function Login() {
             <button className={styles.boton}>Desbloquear Usuario</button>
           </Link>
           <Link to="/reset-pass">
-            <button className={styles.boton}>Resetear Contraseña</button>
+            <button className={styles.boton}>Reestablecer contraseña</button>
           </Link>
         </div>
       </div>
