@@ -53,6 +53,7 @@ export function Login() {
           getDataService(END_POINTS.roles)
             .then((data) => {
               loadData(data);
+              sessionStorage.setItem("DATA_HOME", JSON.stringify(data)); //Se guardan los datos para cargar las tarjetas del Home
             })
             .catch((error) => console.log(error));
 

@@ -23,60 +23,63 @@ import { TitleProvider } from "./context/TitleProvider";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
 import { Prueba } from "./components/Prueba";
-import { DataProvider } from "./context/DataProvider";
+import { useDataContext } from "./context/DataProvider";
 
 export function App() {
+  const datosHome = useDataContext();
+
   return (
     <AuthProvider>
       <TitleProvider>
-        <DataProvider>
-          <Routes>
-            <Route path="/" element={<LayoutLogin />}>
-              <Route index element={<Login />} />
-              <Route path="change-password" element={<ChangePassword />} />
-              <Route path="unlock-user" element={<UnlockUser />} />
-              <Route path="reset-pass" element={<ResetPass />} />
-            </Route>
+        <Routes>
+          <Route path="/" element={<LayoutLogin />}>
+            <Route index element={<Login />} />
+            <Route path="change-password" element={<ChangePassword />} />
+            <Route path="unlock-user" element={<UnlockUser />} />
+            <Route path="reset-pass" element={<ResetPass />} />
+          </Route>
 
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
             <Route
-              path="/home"
-              element={
-                <ProtectedRoute>
-                  <LayoutHome />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<VistaGrid title={null} />} />
-            </Route>
+              index
+              element={<VistaGrid title={null} datos={datosHome} />}
+            />
+          </Route>
 
+          <Route
+            path="/informe-de-junta"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
+            <Route index element={<VistaGrid title="Informe de Junta" />} />
+          </Route>
+
+          <Route
+            path="/Otros Informes Refocosta"
+            element={
+              <ProtectedRoute>
+                <LayoutHome />
+              </ProtectedRoute>
+            }
+          >
             <Route
-              path="/informe-de-junta"
-              element={
-                <ProtectedRoute>
-                  <LayoutHome />
-                </ProtectedRoute>
-              }
-            >
-              <Route index element={<VistaGrid title="Informe de Junta" />} />
-            </Route>
+              index
+              element={<Prueba title="Otros Informes Refocosta" />}
+            />
+          </Route>
 
-            <Route
-              path="/Otros Informes Refocosta"
-              element={
-                <ProtectedRoute>
-                  <LayoutHome />
-                </ProtectedRoute>
-              }
-            >
-              <Route
-                index
-                element={<Prueba title="Otros Informes Refocosta" />}
-              />
-            </Route>
-
-            <Route path="*" element={<Navigate replace to="/home" />} />
-          </Routes>
-        </DataProvider>
+          <Route path="*" element={<Navigate replace to="/home" />} />
+        </Routes>
       </TitleProvider>
     </AuthProvider>
   );

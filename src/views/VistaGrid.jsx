@@ -3,11 +3,9 @@ import { Grid } from "../components/Grid";
 //Importación Estilos
 import styles from "../css/general.module.css";
 import { useChangeTitleContext } from "../context/TitleProvider";
-import { useDataContext } from "../context/DataProvider";
 
-export function VistaGrid({ title }) {
+export function VistaGrid({ title, datos }) {
   const cambiarTitulo = useChangeTitleContext();
-  const datos = useDataContext();
 
   cambiarTitulo(title);
 
