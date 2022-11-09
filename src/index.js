@@ -6,6 +6,8 @@ import "./index.css";
 import "@ui5/webcomponents-icons/dist/AllIcons.js";
 import { DataProvider } from "./context/DataProvider";
 
+//pruebas
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
