@@ -48,10 +48,6 @@ export function Login() {
           getDataService(END_POINTS.roles)
             .then()
             .then((data) => {
-<<<<<<< HEAD
-              loadData(data);
-=======
->>>>>>> 236babd0fac1db5a9232da25c53a6a847a32b0aa
               sessionStorage.setItem("DATA_HOME", JSON.stringify(data)); //Se guardan los datos para cargar las tarjetas del Home
             })
             .catch((error) => console.log(error));
