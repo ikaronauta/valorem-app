@@ -9,12 +9,14 @@ import { END_POINTS } from "../../services/connections";
 
 import styles from "../../css/general.module.css";
 import { getDataService } from "../../services/getDataService";
+import { useDataSetContext } from "../../context/DataProvider";
 
 export function Login() {
   const [user, setUser] = useState("");
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
   const [showHiden, setShowHiden] = useState("hide");
+  const loadData = useDataSetContext();
   const navigate = useNavigate();
 
   const handleShowHiden = () => {
@@ -49,6 +51,7 @@ export function Login() {
             .then()
             .then((data) => {
               sessionStorage.setItem("DATA_HOME", JSON.stringify(data)); //Se guardan los datos para cargar las tarjetas del Home
+              loadData(data);
             })
             .catch((error) => console.log(error));
 
