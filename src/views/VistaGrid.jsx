@@ -11,15 +11,14 @@ export function VistaGrid() {
   const [loading, setLoading] = useState();
   const [datos, setDatos] = useState([]);
 
-  let rutas = [
-    {
-      title: "",
-      rol: "",
-      level: 1,
-    },
-  ];
-
   useEffect(() => {
+    let rutas = [
+      {
+        title: "",
+        rol: "",
+        level: 1,
+      },
+    ];
     setLoading(true); //Se carga con TRUE para que se muestre el sppiner
     sessionStorage.setItem("RUTAS", JSON.stringify(rutas));
 
