@@ -84,7 +84,6 @@ export function ChangePassword() {
       }
 
       function reject(data) {
-        console.log(data);
         Swal.fire({
           title: data.code,
           text: data.message,

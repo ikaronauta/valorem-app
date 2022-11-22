@@ -1,20 +1,35 @@
+import { useEffect, useState } from "react";
+import { PulseLoader } from "react-spinners";
 import { Grid } from "../components/Grid";
 
 //Importación Estilos
 import styles from "../css/general.module.css";
-import { useChangeTitleContext } from "../context/TitleProvider";
-import { useDataContext } from "../context/DataProvider";
+import { END_POINTS } from "../services/connections";
+import { getDataService } from "../services/getDataService";
 
-export function VistaGrid({ title }) {
-  const cambiarTitulo = useChangeTitleContext();
-  const datos = useDataContext();
+export function VistaGrid() {
+  const [loading, setLoading] = useState();
+  const [datos, setDatos] = useState([]);
 
-  cambiarTitulo(title);
+  useEffect(() => {
+    setLoading(true); //Se carga con TRUE para que se muestre el sppiner
+    sessionStorage.setItem("LEVEL", 2);
+
+    getDataService(END_POINTS.roles)
+      .then((data) => {
+        setDatos(data);
+        setLoading(false);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <div className={styles.outlet}>
-      {" "}
-      <Grid datos={datos} />{" "}
+      {loading ? (
+        <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
+      ) : (
+        <Grid datos={datos} />
+      )}
     </div>
   );
 }

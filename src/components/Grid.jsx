@@ -7,7 +7,7 @@ export function Grid({ datos }) {
   return (
     <div className={styles.grid}>
       {datos.map((dato) => {
-        return <Tarjeta key={dato.id} dato={dato} />;
+        return <Tarjeta key={Math.random()} dato={dato} />;
       })}
     </div>
   );

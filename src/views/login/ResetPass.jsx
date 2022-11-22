@@ -28,10 +28,8 @@ export function ResetPass() {
       function resolve(data) {
         if (data.result === "OK") {
           Swal.fire({
-            title: data.message.substring(0, 42),
-            html: `<p>Nueva contraseña: <b style='color:red'>${data.message.substring(
-              50
-            )}</b></p></br><p>La nueva contraseña es temporal y no le sirve para iniciar sesión, primo debe cambiarla.</p>`,
+            title: data.message.substring(0, 44),
+            html: `<p><b style='color:red'>${data.message}</b></p></br><p>La nueva contraseña es temporal y no le sirve para iniciar sesión, primo debe cambiarla.</p>`,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
             icon: "success",
@@ -45,6 +43,7 @@ export function ResetPass() {
             confirmButtonText: "Siguiente",
             icon: "error",
           });
+          setLoading(false);
         }
       }
 
@@ -57,9 +56,9 @@ export function ResetPass() {
           confirmButtonText: "Cerrar",
           icon: "error",
         });
+        setLoading(false);
       }
     }
-    setLoading(false);
   };
 
   return (
@@ -115,7 +114,7 @@ export function ResetPass() {
             <button className={styles.boton}>Volver</button>
           </Link>
           <button className={styles.boton} onClick={handleUnlockUser}>
-            Reestablecer contraseña
+            Restablecer contraseña
           </button>
         </div>
       </div>
