@@ -46,7 +46,7 @@ export function App() {
         </Route>
 
         <Route
-          path="/prueba/:rol"
+          path="/data/:rol"
           element={
             <ProtectedRoute>
               <LayoutHome />

@@ -19,13 +19,9 @@ export function VistaGridRoles() {
 
     getDataRoles2()
       .then((data) => {
-        console.log(datos);
         setDatos(data);
         setLoading(false);
-        sessionStorage.setItem(
-          "LEVEL",
-          parseInt(sessionStorage.getItem("LEVEL")) + 1
-        );
+
         if (data[0].hasOwnProperty("id")) setTest(true);
         else setTest(false);
       })

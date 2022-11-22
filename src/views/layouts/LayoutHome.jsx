@@ -5,25 +5,20 @@ import Swal from "sweetalert2";
 // Importación Estilos
 import styles from "../../css/general.module.css";
 import navBar from "../../css/Navbar.module.css";
-import {
-  useChangeTitleContext,
-  useTitleContext,
-} from "../../context/TitleProvider";
-import { useEffect } from "react";
+import { useState } from "react";
 
 export function LayoutHome() {
-  const title = useTitleContext();
-  const changeTitle = useChangeTitleContext();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    changeTitle(null);
-  }, []);
+  const [title, settitle] = useState("");
 
   const handleBack = () => {
-    changeTitle("");
-    sessionStorage.setItem("LEVEL", parseInt(sessionStorage.getItem("LEVEL")));
-    navigate(-1);
+    let rutas = JSON.parse(sessionStorage.getItem("RUTAS"));
+    if (rutas.length > 1) {
+      rutas.pop();
+      sessionStorage.setItem("RUTAS", JSON.stringify(rutas));
+      settitle(rutas[rutas.length - 1].title);
+      navigate(-1);
+    }
   };
 
   const handleLogOff = () => {
@@ -51,15 +46,15 @@ export function LayoutHome() {
         <div className={navBar.navBar}>
           <div className={navBar.containerLogoTitle}>
             <div onClick={handleBack} className={navBar.sectionBack}>
-              {title !== null ? <ion-icon name="chevron-back"></ion-icon> : ""}
+              <ion-icon name="chevron-back"></ion-icon>
             </div>
             <img
               src={analiticaLogo}
               alt="Analítica"
               style={{ cursor: "pointer" }}
               onClick={() => {
+                console.log("OK");
                 navigate("/home");
-                changeTitle(null);
               }}
             />
           </div>
