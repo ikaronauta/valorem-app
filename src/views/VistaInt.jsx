@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ContenidoInterno } from "../components/ContenidoInterno";
 import styles from "../css/components/MenuInterno.module.css";
 
 export function VistaInt({ datos }) {
   const [datosInternos, setDatosInternos] = useState([]);
+
+  useEffect(() => {
+    setDatosInternos(datos[0].datos);
+  }, [datos]);
 
   function ocultarMostrar() {
     if (document.getElementById("menu").style.left === "-100%")

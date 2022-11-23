@@ -22,8 +22,12 @@ export function VistaGridRoles() {
         setDatos(data);
         setLoading(false);
 
-        if (data[0].hasOwnProperty("id")) setTest(true);
-        else setTest(false);
+        if (data[0].hasOwnProperty("id")) {
+          setTest(true);
+        } else {
+          setTest(false);
+          console.log("false");
+        }
       })
       .catch((error) => console.log(error));
   }, [rol]);
@@ -34,8 +38,10 @@ export function VistaGridRoles() {
         <PulseLoader className={styles.sppiner} color="#005dc9" size={50} />
       ) : test ? (
         <Grid datos={datos} />
-      ) : (
+      ) : datos.length > 0 ? (
         <VistaInt datos={datos} />
+      ) : (
+        ""
       )}
     </div>
   );

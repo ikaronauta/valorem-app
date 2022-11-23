@@ -82,7 +82,7 @@ export function ResetPass() {
                 setTenant(e.target.value);
               }}
             />
-            <label htmlFor="r1">TENANT VALOREM</label>
+            <label htmlFor="r1">HANA VALOREM</label>
           </div>
           <div className={styles.containerRadio}>
             <input
@@ -95,7 +95,7 @@ export function ResetPass() {
                 setTenant(e.target.value);
               }}
             />
-            <label htmlFor="r2">TENANT D1</label>
+            <label htmlFor="r2">HANA D1</label>
           </div>
         </div>
         <input
