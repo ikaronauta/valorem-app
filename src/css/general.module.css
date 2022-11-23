@@ -109,6 +109,7 @@
 
 .sppiner {
   position: absolute;
+  z-index: 999;
 }
 
 @media only screen and (max-width: 720px) {
