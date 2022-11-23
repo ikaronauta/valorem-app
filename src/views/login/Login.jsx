@@ -6,6 +6,7 @@ import { PulseLoader } from "react-spinners";
 import { Icon } from "@ui5/webcomponents-react";
 
 import styles from "../../css/general.module.css";
+import ReactTooltip from "react-tooltip";
 
 export function Login() {
   const [user, setUser] = useState("");
@@ -135,16 +136,31 @@ export function Login() {
             Iniciar Sesión
           </button>
           <Link to="/change-password">
-            <button className={styles.boton}>Cambiar Contraseña</button>
+            <button
+              className={styles.boton}
+              data-tip
+              data-for="change-password"
+            >
+              Cambiar Contraseña
+            </button>
           </Link>
           <Link to="/unlock-user">
-            <button className={styles.boton}>Desbloquear Usuario</button>
+            <button className={styles.boton} data-tip data-for="unlock-user">
+              Desbloquear Usuario
+            </button>
           </Link>
           <Link to="/reset-pass">
             <button className={styles.boton}>Restablecer contraseña</button>
           </Link>
         </div>
       </div>
+      <ReactTooltip id="change-password" place="bottom" type="dark">
+        Utilice esta opción si requiere cambiar su contraseña antes de la fecha
+        límite de su expiración.
+      </ReactTooltip>
+      <ReactTooltip id="unlock-user" place="bottom" type="dark">
+        Utilice esta opción si ingresó erradamente su contraseña más de 3 veces.
+      </ReactTooltip>
     </>
   );
 }
