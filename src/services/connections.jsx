@@ -6,4 +6,5 @@ export const END_POINTS = {
   changePassword: "changePass",
   unlock: "unlock",
   resetPassword: "resetPass",
+  getFile: "getFile",
 };
