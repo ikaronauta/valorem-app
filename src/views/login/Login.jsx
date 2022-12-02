@@ -41,6 +41,7 @@ export function Login() {
       function resolve(data) {
         //Solo los usuarios con estado "05" se pueden logear
         if (data.ID_ESTADO === "05") {
+          console.log(data);
           sessionStorage.setItem("VALOREM_APP", data.USUARIO); //Se guarda el nombre de usuario en Sesion Storage
 
           let fechaVencimiento = new Date(
