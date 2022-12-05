@@ -26,7 +26,7 @@ export function VistaGridRoles() {
           setTest(true);
         } else {
           setTest(false);
-          console.log("false");
+
         }
       })
       .catch((error) => console.log(error));

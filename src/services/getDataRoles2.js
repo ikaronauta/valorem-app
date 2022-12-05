@@ -11,7 +11,6 @@ export const getDataRoles2 = async () => {
   const level = rutas[rutas.length - 1].level;
 
   const url = `${BASE_URL}${endPoint}?user=${user}&rol=${rol}&tenant=${tenant}&level=${level}`;
-  console.log(url);
 
   const result = await axios.get(url);
   const response = result.data;

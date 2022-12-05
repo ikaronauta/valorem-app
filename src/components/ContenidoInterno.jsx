@@ -6,15 +6,24 @@ export function ContenidoInterno({ datosInternos }) {
     <div className={styles.contenedorPrincipal}>
       <ul>
         {datosInternos.map((dato) => {
-          let item = dato.file;
-          item = item.replace("https://valorem.sharepoint.com/:x:/r/", "");
-          item = item.split("?d")[0];
-          item = item.split("/")[item.split("/").length - 1];
+          let url;
 
-          let url = `${BASE_URL}${END_POINTS.getFile}/${item}`;
+          if (dato.file.includes("sharepoint")) {
+            let item = dato.file;
+            item = item.replace("https://valorem.sharepoint.com/:x:/r/", "");
+            item = item.split("?d")[0];
+            item = item.split("/")[item.split("/").length - 1];
+
+            url = `${BASE_URL}${END_POINTS.getFile}/${item}`;
+          } else {
+            url = dato.file;
+          }
+
           return (
-            <li key={Math.random * Math.random}>
-              <a href={url}>{dato.desc}</a>
+            <li key={Math.random()}>
+              <a href={url} target="_blank" rel="noreferrer">
+                {dato.desc}
+              </a>
             </li>
           );
         })}

@@ -53,7 +53,6 @@ export function LayoutHome() {
               alt="Analítica"
               style={{ cursor: "pointer" }}
               onClick={() => {
-                console.log("OK");
                 navigate("/home");
               }}
             />
