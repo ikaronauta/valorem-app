@@ -208,7 +208,7 @@ export function ChangePassword() {
         </div>
         <p className={styles.politicasPass}>
           Políticas de clave: utilizar letras (minúsculas y mayúsculas) ,
-          números, caracteres especiales. Debe contener mínimo 16 caracteres y
+          números, caracteres especiales. Debe contener mínimo 12 caracteres y
           no coincidir con las últimas 5 claves.
         </p>
       </div>
