@@ -150,7 +150,9 @@ export function Login() {
             </button>
           </Link>
           <Link to="/reset-pass">
-            <button className={styles.boton}>Restablecer contraseña</button>
+            <button className={styles.boton} data-tip data-for="reset-pass">
+              Restablecer contraseña
+            </button>
           </Link>
         </div>
       </div>
@@ -160,6 +162,10 @@ export function Login() {
       </ReactTooltip>
       <ReactTooltip id="unlock-user" place="bottom" type="dark">
         Utilice esta opción si ingresó erradamente su contraseña más de 3 veces.
+      </ReactTooltip>
+      <ReactTooltip id="reset-pass" place="bottom" type="dark">
+        Utilice esta opción si olvido su contraseña o expiró y es necesario
+        asignar una nueva.
       </ReactTooltip>
     </>
   );
