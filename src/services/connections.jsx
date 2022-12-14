@@ -1,4 +1,4 @@
-export const BASE_URL = "https://valoremanalitica.bpmco.co/";
+export const BASE_URL = "https://analitica.valorem.com.co/api/";
 
 export const END_POINTS = {
   roles: "roles",
