@@ -10,11 +10,8 @@ export function ContenidoInterno({ datosInternos }) {
 
           if (dato.file.includes("sharepoint")) {
             let item = dato.file;
-            item = item.replace("https://valorem.sharepoint.com/:x:/r/", "");
-            item = item.split("?d")[0];
-            item = item.split("/")[item.split("/").length - 1];
-
-            url = `${BASE_URL}${END_POINTS.getFile}/${item}`;
+            let user = sessionStorage.getItem("VALOREM_APP");
+            url = `${BASE_URL}${END_POINTS.getFile}?user=${user}&file=${item}&tenant=VAL`;
           } else {
             url = dato.file;
           }
