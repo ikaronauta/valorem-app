@@ -5,9 +5,24 @@ import styles from "../css/components/MenuInterno.module.css";
 export function VistaInt({ datos }) {
   const [datosInternos, setDatosInternos] = useState([]);
 
+  console.log(datos[0].datos);
+
   useEffect(() => {
-    setDatosInternos(datos[0].datos);
+    var datosSinRepetidos = arreglarDatosRepetidos(datos[0].datos);
+
+    console.log(datosSinRepetidos);
+    setDatosInternos(datosSinRepetidos);
   }, [datos]);
+
+  function arreglarDatosRepetidos(data) {
+    var datosSinRepetir = [];
+    for (let i = 0; i < data.length; i++) {
+      var datoExiste = datosSinRepetir.filter((x) => x.desc === data[i].desc);
+      if (datoExiste.length === 0) datosSinRepetir.push(data[i]);
+    }
+
+    return datosSinRepetir;
+  }
 
   function ocultarMostrar() {
     if (document.getElementById("menu").style.left === "-100%")

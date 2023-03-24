@@ -22,12 +22,8 @@ export function VistaGridRoles() {
         setDatos(data);
         setLoading(false);
 
-        if (data[0].hasOwnProperty("id")) {
-          setTest(true);
-        } else {
-          setTest(false);
-
-        }
+        if (data[0].hasOwnProperty("id")) setTest(true);
+        else setTest(false);
       })
       .catch((error) => console.log(error));
   }, [rol]);
