@@ -10,6 +10,7 @@ import { getDataService } from "../services/getDataService";
 export function VistaGrid() {
   const [loading, setLoading] = useState();
   const [datos, setDatos] = useState([]);
+  const [tenant, setTenant] = useState("");
 
   useEffect(() => {
     let rutas = [
@@ -21,8 +22,9 @@ export function VistaGrid() {
     ];
     setLoading(true); //Se carga con TRUE para que se muestre el sppiner
     sessionStorage.setItem("RUTAS", JSON.stringify(rutas));
+    setTenant(sessionStorage.getItem("TENANT"));
 
-    getDataService(END_POINTS.roles)
+    getDataService(END_POINTS.roles, tenant)
       .then((data) => {
         setDatos(data);
         setLoading(false);

@@ -13,11 +13,13 @@ export function VistaGridRoles() {
   const [datos, setDatos] = useState([]);
   const [test, setTest] = useState();
   const { rol } = useParams();
+  const [tenant, setTenant] = useState("");
 
   useEffect(() => {
     setLoading(true); //Se carga con TRUE para que se muestre el sppiner
+    setTenant(sessionStorage.getItem("TENANT"));
 
-    getDataRoles2()
+    getDataRoles2(tenant)
       .then((data) => {
         setDatos(data);
         setLoading(false);

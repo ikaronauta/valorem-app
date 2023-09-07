@@ -13,6 +13,7 @@ export function Login() {
   const [pass, setPass] = useState("");
   const [loading, setLoading] = useState(false);
   const [showHiden, setShowHiden] = useState("hide");
+  const [tenant, setTenant] = useState("");
   const navigate = useNavigate();
 
   const handleShowHiden = () => {
@@ -26,7 +27,7 @@ export function Login() {
   };
 
   const handleLogin = () => {
-    if (user === "" || pass === "") {
+    if (user === "" || pass === "" || tenant === "") {
       Swal.fire({
         title: "Datos Incompletos",
         text: "¡Debe ingresar toda la información para poder continuar!",
@@ -36,12 +37,13 @@ export function Login() {
       });
     } else {
       setLoading(true); //Se carga con TRUE para que se muestre el sppiner
-      loginService(user, pass).then(resolve, reject); //Login
+      loginService(user, pass, tenant).then(resolve, reject); //Login
 
       function resolve(data) {
         //Solo los usuarios con estado "05" se pueden logear
         if (data.ID_ESTADO === "05") {
           sessionStorage.setItem("VALOREM_APP", data.USUARIO); //Se guarda el nombre de usuario en Sesion Storage
+          sessionStorage.setItem("TENANT", data.tenant); //Se guarda el tenant en Sesion Storage
 
           let fechaVencimiento = new Date(
             data.FECHA_VENCIMIENTO
@@ -99,6 +101,34 @@ export function Login() {
       )}
       <div className={styles.contenedor}>
         <h1>PORTAL DE SERVICIO</h1>
+        <div className={styles.groupRadios}>
+          <div className={styles.containerRadio}>
+            <input
+              className={styles.radio}
+              id="r1"
+              type="radio"
+              name="opciones"
+              value="VALOREM"
+              onChange={(e) => {
+                setTenant(e.target.value);
+              }}
+            />
+            <label htmlFor="r1">HANA VALOREM</label>
+          </div>
+          <div className={styles.containerRadio}>
+            <input
+              className={styles.radio}
+              id="r2"
+              type="radio"
+              name="opciones"
+              value="D1"
+              onChange={(e) => {
+                setTenant(e.target.value);
+              }}
+            />
+            <label htmlFor="r2">HANA D1</label>
+          </div>
+        </div>
         <input
           id="user"
           type="text"
