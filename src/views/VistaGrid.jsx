@@ -24,7 +24,11 @@ export function VistaGrid() {
 
     getDataService(END_POINTS.roles)
       .then((data) => {
-        setDatos(data);
+        let index = data.findIndex((x) => x.content === "Otros KOBA");
+
+        if (index >= 0) data[index].content = "Reportes D1";
+
+        setDatos(filtrarArr(data));
         setLoading(false);
         document.getElementById("title").innerHTML = "";
       })
@@ -40,4 +44,23 @@ export function VistaGrid() {
       )}
     </div>
   );
+}
+
+function filtrarArr(arr) {
+  const idsUnicos = new Set();
+
+  // Se filtra data para obtener solo los elementos con IDs únicos
+  const dataFilt = arr.filter((elemento) => {
+    // Si el ID ya está en el conjunto, significa que es un duplicado
+    if (idsUnicos.has(elemento.id)) {
+      return false; // No se agrega este elemento al nuevo arreglo
+    }
+    // Se agrega el ID al conjunto
+    idsUnicos.add(elemento.id);
+
+    // Se mantiene este elemento en el nuevo arreglo
+    return true;
+  });
+
+  return dataFilt;
 }
