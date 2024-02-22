@@ -64,8 +64,8 @@ export function Login() {
 
           //Se muestra alerta con el error que devolvio la API
           Swal.fire({
-            title: data.result,
-            text: data.message,
+            title: data.USUARIO,
+            text: data.NM_ESTADO,
             confirmButtonColor: "#005DC9",
             confirmButtonText: "Siguiente",
             icon: "error",
